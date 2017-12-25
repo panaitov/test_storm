@@ -1,0 +1,67 @@
+/* -----------------------------------------
+ Services
+----------------------------------------- */
+.services {
+	.container {
+		@extend %section-border;
+		padding-top :48px;
+		padding-bottom :37px;
+		text-align :center;
+	}
+	&__title {
+		margin      :18px;
+	}
+	&__desc {
+		width         :100%;
+		max-width     :439px;
+		margin-left   :auto;
+		margin-right  :auto;
+		margin-bottom :48px;
+	}
+	&__action {
+		margin-top :34px;
+		@include max-width(sm) {
+			margin-top :15px;
+		}
+	}
+	.btn {
+		padding :23px 54px;
+		@include max-width(sm) {
+			padding :16px 34px;
+		}
+	}
+}
+.service {
+	margin-bottom :30px;
+	&:nth-child(3n + 4) {
+		clear :both;
+		@include max-width(md) {
+			clear:none;
+		}
+		
+	}
+	@include max-width(md) {
+		&:nth-child(2n + 3) {
+			clear :both;
+		}
+	}
+	&__icon {
+		display :flex;
+		justify-content :center;
+		align-items :center;
+		margin-bottom    :10px;
+		margin-left      :auto;
+		margin-right     :auto;
+		padding          :5px;
+		width            :84px;
+		height           :84px;
+		border-radius    :50%;
+		background-color :$red;
+	}
+	&__title {
+		margin-bottom :10px;
+		font-family   :$second-font;
+		font-size     :20px;
+		font-weight   :400;
+	}
+}
