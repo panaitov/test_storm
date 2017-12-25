@@ -1,0 +1,165 @@
+/* -----------------------------------------
+ Header
+----------------------------------------- */
+.header {
+	position            :relative;
+	padding-top         :204px;
+	padding-bottom      :121px;
+	background-repeat   :no-repeat;
+	background-position :50%;
+	background-size     :cover;
+}
+.head-top {
+	position       :fixed;
+	top            :0;
+	left           :0;
+	right          :0;
+	text-transform :capitalize;
+	color          :$white;
+	z-index        :99;
+	@include max-width(sm) {
+		position :absolute;
+	}
+}
+.top-line {
+	position         :relative;
+	font-size        :14px;
+	font-weight      :700;
+	background-color :#000;
+	&__inner {
+		display     :flex;
+		flex-wrap   :wrap;
+		align-items :center;
+	}
+}
+.location-link {
+	display        :flex;
+	align-items    :center;
+	margin-right   :auto;
+	letter-spacing :0.6px;
+	color          :$yellow;
+	transition     :color 0.3s ease;
+	&:hover {
+		color :$white;
+		svg {
+			fill :$white;
+		}
+	}
+	svg {
+		margin-left         :5px;
+		width               :10px;
+		height              :15px;
+		fill                :$yellow;
+		transition          :0.3s ease;
+		transition-property :fill, transform;
+	}
+	&:hover,
+	&:focus {
+		svg {
+			transform :translateX(4px);
+		}
+	}
+}
+.hover-line {
+	position         :absolute;
+	content          :'';
+	top              :0;
+	left             :0;
+	display          :block;
+	height           :4px;
+	width            :0;
+	border-radius    :0 0 10px 10px;
+	background-color :$red;
+	transition       :left 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) 0s, width 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+	&--bottom {
+		top           :calc(100% - 3px);
+		border-radius :10px 10px 0 0;
+	}
+}
+.second-nav {
+	&__list {
+		display     :flex;
+		align-items :center;
+		li {
+			margin-left    :24px;
+			letter-spacing :0.5px;
+			a {
+				display        :block;
+				padding-top    :16px;
+				padding-bottom :16px;
+				transition     :coloe 0.3s ease;
+				&:hover {
+					color :$red;
+				}
+			}
+		}
+	}
+}
+.head-nav {
+	position         :relative;
+	font-weight      :700;
+	background-color :rgba(0, 0, 0, 0.6);
+	&__inner {
+		display        :flex;
+		flex-wrap      :wrap;
+		align-items    :center;
+		padding-top    :4px;
+		padding-bottom :3px;
+	}
+}
+.main-nav {
+	margin-left :auto;
+	@include max-width(md) {
+		width      :69%;
+		text-align :right;
+	}
+	&__list {
+		display     :flex;
+		flex-wrap   :wrap;
+		align-items :center;
+		@include max-width(lg) {
+			display      :block;
+			column-count :3;
+		}
+		li {
+			margin-left    :50px;
+			letter-spacing :0.5px;
+			@include max-width(1260px) {
+				margin-left :40px;
+			}
+			@include max-width(lg) {
+				margin-left   :25px;
+				margin-bottom :5px;
+			}
+			@include max-width(md) {
+				margin-left :0;
+			}
+			a {
+				transition :color 0.3s ease;
+				&:hover,
+				&:focus {
+					color :$red;
+				}
+			}
+		}
+	}
+}
+.intro {
+	padding          :53px 73px 28px 21px;
+	width            :100%;
+	max-width        :586px;
+	font-family      :$second-font;
+	font-size        :34px;
+	font-weight      :400;
+	line-height      :1.25;
+	letter-spacing   :2px;
+	color            :$white;
+	background-color :rgba(0, 0, 0, 0.6);
+	&__title {
+		padding-left  :9px;
+		margin-bottom :26px;
+		&--color {
+			color :$yellow;
+		}
+	}
+}
