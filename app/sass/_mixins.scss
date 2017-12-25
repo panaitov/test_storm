@@ -1,0 +1,23 @@
+//--- Responsive fonts---
+@mixin font-size($minSize: 24, $maxSize: 48, $minWidth: 320, $maxWidth: 993, $baseSize: 14) {
+	font-size :#{$minSize}px;
+	@media screen and (min-width :#{$minWidth}px) {
+		font-size :calc(#{($minSize / $baseSize)}rem + #{($maxSize - $minSize)} * (100vw - #{$minWidth}px) / #{($maxWidth - $minWidth)});
+	}
+	@media screen and (min-width :#{$maxWidth}px) {
+		font-size :calc(#{($minSize / $baseSize)}rem + #{($maxSize - $minSize)}px);
+	}
+}
+//---Elements counter---
+@mixin has-nth($expression, $element: '*') {
+	&:nth-last-child(#{$expression}):first-child,
+	&:nth-last-child(#{$expression}):first-child ~ #{$element} {
+		@content;
+	}
+}
+@mixin at-least($quantity, $element: '*') {
+	@include has-nth('n + #{$quantity}', $element) {
+		@content;
+	}
+}
+
