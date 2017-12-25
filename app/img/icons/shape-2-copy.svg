@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="11" height="14"
+     viewBox="0 0 11 14">
+    <defs>
+        <path id="mj4xa" d="M595.63 462l6.37-5-6.37-5-.63.71 5.46 4.29-5.46 4.29.63.71z"/>
+    </defs>
+    <g>
+        <g transform="translate(-593 -450)">
+            <use xlink:href="#mj4xa"/>
+        </g>
+    </g>
+</svg>
