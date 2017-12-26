@@ -18,7 +18,9 @@ get_header(); ?>
 
       locate_template('template-parts/content-services_cat.php', true);
 
-			locate_template('template-parts/content-testimonials.php', true); ?>
+			locate_template('template-parts/content-testimonials.php', true);
+
+			locate_template('template-parts/content-news.php', true); ?>
 
 
 

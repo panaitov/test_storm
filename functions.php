@@ -150,14 +150,13 @@ add_filter('document_title_parts', function ($title) {
 
 
 /**
- * Customizes read more link in excerpts
+ * Customize read more link in excerpts
  */
-function new_more_text($more_link, $more_link_text)
-{
-  $new = "Read More";
-  return str_replace($more_link_text, $new, $more_link);
+function new_excerpt_more($more) {
+  global $post;
+  return '<a class="excerpt_link" href="'. get_permalink($post->ID) . '">Read More</a>';
 }
-add_filter('the_content_more_link', 'new_more_text', 10, 2);
+add_filter('excerpt_more', 'new_excerpt_more');
 
 /**
  * ACF Options Page

@@ -320,6 +320,41 @@ input.wpcf7-not-valid {
   outline: 0;
 }
 
+.excerpt_link {
+  position: relative;
+  padding-bottom: 2px;
+  color: #DB302C;
+  margin-left: 5px;
+  white-space: nowrap;
+}
+
+.excerpt_link:before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  -webkit-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  transform: scale(1, 1);
+  -webkit-transform-origin: 0 100%;
+  -ms-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+  background-color: currentColor;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+
+.excerpt_link:hover:before,
+.excerpt_link:focus:before {
+  -webkit-transform: scale(0, 1);
+  -ms-transform: scale(0, 1);
+  transform: scale(0, 1);
+}
+
 input::-moz-placeholder {
   text-overflow: ellipsis;
 }
@@ -931,6 +966,81 @@ textarea:focus {
 }
 
 /* -----------------------------------------
+	News
+----------------------------------------- */
+
+.block-news {
+  padding-top: 57px;
+  padding-bottom: 4px;
+  background-color: #F7F8F8;
+}
+
+.block-news__title {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.block-news__item {
+  margin-bottom: 30px;
+}
+
+.news {
+  border: 1px solid #E1E1E1;
+}
+
+.news__img {
+  position: relative;
+}
+
+@supports ((-o-object-fit: cover) or (object-fit: cover)) {
+  .news__img img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+}
+
+.news__date {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 9px 13px;
+  width: 64px;
+  height: 64px;
+  font-family: "Barlow", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 1.44px;
+  background-color: #FD0;
+}
+
+.news__date--number {
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.news__title {
+  font-family: "Barlow", sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.news__body {
+  padding: 17px 13px 21px;
+}
+
+.news__footer {
+  padding: 16px 15px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-top: 1px solid #E1E1E1;
+}
+
+/* -----------------------------------------
  Footer
 ----------------------------------------- */
 
@@ -1289,6 +1399,10 @@ textarea:focus {
   .testimonials {
     padding-top: 30px;
     padding-bottom: 30px;
+  }
+
+  .block-news {
+    padding-top: 30px;
   }
 
   .contact-form__action .btn {

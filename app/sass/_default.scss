@@ -161,3 +161,28 @@ input.wpcf7-not-valid {
 .slick-slide {
 	outline :0;
 }
+.excerpt_link {
+	position       :relative;
+	padding-bottom :2px;
+	color          :$red;
+	margin-left    :5px;
+	white-space    :nowrap;
+	&:before {
+		content          :'';
+		position         :absolute;
+		top              :100%;
+		left             :0;
+		right            :0;
+		height           :1px;
+		transform        :scale(1, 1);
+		transform-origin :0 100%;
+		background-color :currentColor;
+		transition       :transform 0.3s ease;
+	}
+	&:hover,
+	&:focus {
+		&:before {
+			transform :scale(0, 1);
+		}
+	}
+}
