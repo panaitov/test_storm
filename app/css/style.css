@@ -977,7 +977,6 @@ textarea:focus {
 .block-news {
   padding-top: 21px;
   padding-bottom: 25px;
-  background-color: #F7F8F8;
 }
 
 .block-news__title {
@@ -1329,6 +1328,10 @@ textarea:focus {
     padding-left: 34px;
     padding-right: 34px;
   }
+
+  .projects {
+    margin-bottom: 30px;
+  }
 }
 
 @media screen and (max-width: 992px) {
@@ -1441,6 +1444,11 @@ textarea:focus {
   .franchise-form__title {
     font-size: 32px;
     margin-bottom: 12px;
+  }
+
+  .testimonials-slide blockquote {
+    font-size: 14px;
+    line-height: 1.5;
   }
 
   .contact-form__title,

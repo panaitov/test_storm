@@ -71,6 +71,9 @@
 	align-items  :flex-start;
 	margin-right :-10px;
 	margin-left  :-10px;
+	@include max-width(lg) {
+		margin-bottom :30px;
+	}
 	@include max-width(md) {
 		justify-content :center;
 	}
