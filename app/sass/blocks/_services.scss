@@ -4,12 +4,12 @@
 .services {
 	.container {
 		@extend %section-border;
-		padding-top :48px;
-		padding-bottom :37px;
-		text-align :center;
+		padding-top    :36px;
+		padding-bottom :32px;
+		text-align     :center;
 	}
 	&__title {
-		margin      :18px;
+		margin-bottom :5px;
 	}
 	&__desc {
 		width         :100%;
@@ -19,24 +19,21 @@
 		margin-bottom :48px;
 	}
 	&__action {
-		margin-top :34px;
-		@include max-width(sm) {
-			margin-top :15px;
-		}
+		margin-top :19px;
 	}
 	.btn {
-		padding :23px 54px;
+		padding :20px 52px;
 		@include max-width(sm) {
 			padding :16px 34px;
 		}
 	}
 }
 .service {
-	margin-bottom :30px;
+	margin-bottom :45px;
 	&:nth-child(3n + 4) {
 		clear :both;
 		@include max-width(md) {
-			clear:none;
+			clear :none;
 		}
 		
 	}
@@ -46,10 +43,9 @@
 		}
 	}
 	&__icon {
-		display :flex;
-		justify-content :center;
-		align-items :center;
-		margin-bottom    :10px;
+		display          :flex;
+		justify-content  :center;
+		align-items      :center;
 		margin-left      :auto;
 		margin-right     :auto;
 		padding          :5px;
