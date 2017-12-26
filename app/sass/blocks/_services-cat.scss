@@ -2,14 +2,14 @@
  Services
 ----------------------------------------- */
 .services-cat {
-	padding-top    :50px;
-	padding-bottom :52px;
+	padding-top    :39px;
+	padding-bottom :22px;
 	@include max-width(sm) {
 		padding-top    :30px;
-		padding-bottom :30px;
+		padding-bottom :0;
 	}
 	&__title {
-		margin-bottom :11px;
+		margin-bottom :3px;
 		text-align    :center;
 	}
 	&__desc {
@@ -29,8 +29,9 @@
 	}
 }
 .services-cat-item {
+	margin-bottom :30px;
 	&__img {
-		height :241px;
+		height :201px;
 		img {
 			@supports (object-fit:cover) {
 				width      :100%;
