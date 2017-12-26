@@ -49,6 +49,18 @@ $query = new WP_Query($queryArgs); ?>
         <?php endwhile; ?>
 			</div>
 			<!-- /.row -->
+			<div class="block-news__action">
+				<div class="btn-wrap">
+					<a class="btn" href="<?php echo get_the_permalink(165); ?>">
+						<span><?php the_field('news_button', 2);?></span>
+						<svg>
+							<use xlink:href="#arrow-icon"/>
+						</svg>
+					</a>
+					<span class="btn-wrap__shadow" style="top: -35px; left: 273px;"></span>
+				</div>
+			</div>
+			<!-- /.block-news__action -->
 		</div>
 		<!-- /.container -->
 	</section>

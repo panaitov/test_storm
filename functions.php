@@ -158,6 +158,14 @@ function new_excerpt_more($more) {
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 
+/*
+ * Change words limit in excerpts
+ */
+function new_excerpt_length($length) {
+  return 75;
+}
+add_filter('excerpt_length', 'new_excerpt_length');
+
 /**
  * ACF Options Page
  */
