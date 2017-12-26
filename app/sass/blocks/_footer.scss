@@ -5,14 +5,14 @@
 	color :$white;
 }
 .foot-top {
-	padding-top      :41px;
-	padding-bottom   :11px;
+	padding-top      :29px;
 	background-color :$red;
 }
 .contact-form,
 .projects {
 	&__title {
-		margin-bottom :24px;
+		margin-bottom  :18px;
+		text-transform :capitalize;
 		@include max-width(xxs) {
 			margin-bottom :12px;
 		}
@@ -33,11 +33,11 @@
 		select,
 		textarea {
 			width   :100%;
-			padding :14px 11px;
+			padding :7px 11px;
 			color   :#000;
 		}
 		select {
-			padding            :14px 31px 14px 11px;
+			padding            :7px 31px 7px 11px;
 			-webkit-appearance :none;
 			-moz-appearance    :none;
 			text-indent        :1px;
@@ -57,9 +57,9 @@
 	&__action {
 		text-align :right;
 		.btn {
-			padding :25px 34px;
+			padding :20px 34px;
 			@include max-width(sm) {
-				padding-top :16px;
+				padding-top    :16px;
 				padding-bottom :16px;
 			}
 		}
@@ -76,7 +76,7 @@
 	}
 	&__title,
 	&__desc {
-		width :100%;
+		width        :100%;
 		margin-left  :10px;
 		margin-right :10px;
 	}
@@ -84,9 +84,9 @@
 		width      :100%;
 		text-align :center;
 		.btn {
-			padding :25px 37px;
+			padding :20px 35px;
 			@include max-width(sm) {
-				padding-top :16px;
+				padding-top    :16px;
 				padding-bottom :16px;
 			}
 		}
@@ -109,39 +109,39 @@
 	}
 }
 .foot-bottom {
-	padding-top      :22px;
-	padding-bottom   :20px;
+	padding-top      :13px;
+	padding-bottom   :23px;
 	background-color :$main;
-	color: #f7f8f8;
-	font-size: 12px;
-	font-weight: 400;
+	color            :#F7F8F8;
+	font-size        :12px;
+	font-weight      :400;
 	&__inner {
-		display :flex;
-		flex-wrap:wrap;
+		display     :flex;
+		flex-wrap   :wrap;
 		align-items :center;
 		@include max-width(md) {
-			display :block;
+			display    :block;
 			text-align :center;
 		}
 	}
 }
 .foot-nav {
-	display :inline-block;
+	display     :inline-block;
 	margin-left :auto;
-	@include max-width(md){
+	@include max-width(md) {
 		margin-bottom :15px;
 	}
 	&__list {
-		display :flex;
-		flex-wrap:wrap;
+		display     :flex;
+		flex-wrap   :wrap;
 		align-items :center;
 		li {
 			margin-left :20px;
-			@include max-width(md){
+			@include max-width(md) {
 				margin-bottom :15px;
 			}
 			a {
-				position :relative;
+				position       :relative;
 				padding-bottom :2px;
 				&:before {
 					content          :'';
@@ -165,10 +165,9 @@
 		}
 	}
 }
-
 .copyright {
 	display :inline-block;
-	order :-1;
+	order   :-1;
 	a {
 		position       :relative;
 		padding-bottom :2px;
