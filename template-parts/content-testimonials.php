@@ -8,10 +8,13 @@
  */
 global $post;
 $title = get_field('testimonials_title', $post->ID);
-$comments = get_comments($args);
 $args = array(
-  'post-type' => 'our-services'
-);?>
+  'post-type' => 'our-services',
+  'orderby'   => 'comment_date_gmt',
+  'number'    => 5
+);
+$comments = get_comments($args);?>
+
 	<!-- Begin testimonials -->
 <?php if($comments) : ?>
 	<section class="testimonials">
