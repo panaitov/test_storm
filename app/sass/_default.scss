@@ -87,7 +87,7 @@ svg {
 	&--bg-red {
 		background-color :$red;
 		.btn {
-			color : $white;
+			color :$white;
 		}
 	}
 	&--bg-white {
@@ -132,7 +132,7 @@ svg {
 	transition     :color 0.3s ease;
 	z-index        :1;
 	@include max-width(sm) {
-		padding   :10px 35px;
+		padding :10px 35px;
 	}
 	svg {
 		width       :10px;
@@ -145,17 +145,19 @@ svg {
 	width :calc(50% - 12px);
 }
 span.wpcf7-not-valid-tip {
-	color: $yellow;
+	color :$yellow;
 }
 input.wpcf7-not-valid {
-	box-shadow: inset 0 0 5px $red;
+	box-shadow :inset 0 0 5px $red;
 }
-
 %section-border {
-	border-bottom :1px solid #d4d4d4;
+	border-bottom :1px solid #D4D4D4;
 }
 .section-title {
 	font-family :$second-font;
 	color       :$red;
-	text-align :center;
+	text-align  :center;
+}
+.slick-slide {
+	outline :0;
 }

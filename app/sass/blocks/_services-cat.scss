@@ -2,15 +2,15 @@
  Services
 ----------------------------------------- */
 .services-cat {
-	padding-top :50px;
+	padding-top    :50px;
 	padding-bottom :52px;
-	@include max-width(md) {
-		padding-top :30px;
+	@include max-width(sm) {
+		padding-top    :30px;
 		padding-bottom :30px;
 	}
 	&__title {
-		margin     :11px;
-		text-align :center;
+		margin-bottom :11px;
+		text-align    :center;
 	}
 	&__desc {
 		width         :100%;
@@ -18,7 +18,7 @@
 		margin-left   :auto;
 		margin-right  :auto;
 		margin-bottom :24px;
-		text-align :center;
+		text-align    :center;
 	}
 	.btn-wrap {
 		display :block;
@@ -38,7 +38,7 @@
 				object-fit :cover;
 			}
 			height :100%;
-			width :auto;
+			width  :auto;
 		}
 	}
 }

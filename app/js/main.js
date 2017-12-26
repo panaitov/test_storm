@@ -50,6 +50,14 @@
 			$(this).find('.btn-wrap__shadow').css({top: relY, left: relX})
 		});
 
+		/* Testimonials slider*/
+		$('.testimonials-slider').slick({
+			arrows: false,
+			dots: true,
+			slide: '.testimonials-slide',
+			slidesToShow: 1
+		});
+
 	});	/* end ready*/
 
 	$(window).on('load resize', function() {

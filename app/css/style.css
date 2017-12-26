@@ -307,13 +307,17 @@ input.wpcf7-not-valid {
 }
 
 .services .container {
-  border-bottom: 1px solid #d4d4d4;
+  border-bottom: 1px solid #D4D4D4;
 }
 
 .section-title {
   font-family: "Barlow", sans-serif;
   color: #DB302C;
   text-align: center;
+}
+
+.slick-slide {
+  outline: 0;
 }
 
 input::-moz-placeholder {
@@ -804,7 +808,7 @@ textarea:focus {
 }
 
 .services-cat__title {
-  margin: 11px;
+  margin-bottom: 11px;
   text-align: center;
 }
 
@@ -845,6 +849,85 @@ textarea:focus {
     -o-object-fit: cover;
     object-fit: cover;
   }
+}
+
+/* -----------------------------------------
+ Testimonials
+----------------------------------------- */
+
+.testimonials {
+  padding-top: 57px;
+  padding-bottom: 34px;
+  background-color: #F7F8F8;
+}
+
+.testimonials__title {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.testimonials .slick-dots {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.testimonials .slick-dots li {
+  display: block;
+  margin-left: 3.5px;
+  margin-right: 3.5px;
+  width: 14px;
+  height: 14px;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-box-shadow: inset 0 0 0 1px #D7D7D7, inset 0 0 0 0 #000;
+  box-shadow: inset 0 0 0 1px #D7D7D7, inset 0 0 0 0 #000;
+  background-color: #FFF;
+  -webkit-transition: -webkit-box-shadow 0.3s ease;
+  transition: -webkit-box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, -webkit-box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.testimonials .slick-dots li.slick-active {
+  -webkit-box-shadow: inset 0 0 0 0 #D7D7D7, inset 0 0 0 20px #000;
+  box-shadow: inset 0 0 0 0 #D7D7D7, inset 0 0 0 20px #000;
+}
+
+.testimonials .slick-dots li button {
+  font-size: 0;
+}
+
+.testimonials-slide {
+  margin-left: 5px;
+  margin-right: 5px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.testimonials-slide__info {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.35;
+  text-align: right;
+}
+
+.testimonials-slide blockquote {
+  font-family: "Barlow", sans-serif;
+  padding: 29px 34px;
+  background-color: #FFF;
+  font-size: 20px;
+  line-height: 1.3;
 }
 
 /* -----------------------------------------
@@ -1144,11 +1227,6 @@ textarea:focus {
     clear: both;
   }
 
-  .services-cat {
-    padding-top: 30px;
-    padding-bottom: 30px;
-  }
-
   .projects {
     -webkit-box-pack: center;
     -webkit-justify-content: center;
@@ -1201,6 +1279,16 @@ textarea:focus {
 
   .services .btn {
     padding: 16px 34px;
+  }
+
+  .services-cat {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .testimonials {
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 
   .contact-form__action .btn {
