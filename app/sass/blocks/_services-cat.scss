@@ -42,4 +42,10 @@
 			width  :auto;
 		}
 	}
+	.btn-wrap__shadow {
+		@include max-width(sm) {
+			width :1500px;
+			height :1500px;
+		}
+	}
 }

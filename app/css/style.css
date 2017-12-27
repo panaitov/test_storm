@@ -1412,6 +1412,11 @@ textarea:focus {
     padding-bottom: 0;
   }
 
+  .services-cat-item .btn-wrap__shadow {
+    width: 1500px;
+    height: 1500px;
+  }
+
   .testimonials {
     padding-top: 30px;
     padding-bottom: 30px;
