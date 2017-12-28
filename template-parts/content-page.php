@@ -9,24 +9,23 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
+<article id="post-<?php the_ID(); ?>" <?php post_class('page-content row'); ?>>
+	<div class="col-sm-4">
+    <?php stormguard_post_thumbnail(); ?>
+	</div>
+	<!-- /.col -->
+	<div class="col-sm-8">
+		<header class=" section-title entry-header">
+			<?php the_title( '<h3 class="entry-title">', '</h3>' ); ?>
+		</header><!-- .entry-header -->
+		<div class="entry-content">
+			<?php	the_content();?>
+		</div><!-- .entry-content -->
 
-	<?php stormguard_post_thumbnail(); ?>
+	</div>
+	<!-- /.col -->
 
-	<div class="entry-content">
-		<?php
-			the_content();
-
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'stormguard' ),
-				'after'  => '</div>',
-			) );
-		?>
-	</div><!-- .entry-content -->
-
+</article><!-- #post-<?php the_ID(); ?> -->
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">
 			<?php
@@ -49,4 +48,8 @@
 			?>
 		</footer><!-- .entry-footer -->
 	<?php endif; ?>
-</article><!-- #post-<?php the_ID(); ?> -->
+<?php
+wp_link_pages( array(
+  'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'stormguard' ),
+  'after'  => '</div>',
+) ); ?>

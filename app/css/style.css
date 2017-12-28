@@ -1185,6 +1185,14 @@ textarea:focus {
   padding: 20px 34px;
 }
 
+.contact-form__btn-wrap .btn-wrap:not(:last-of-type) {
+  margin-bottom: 19px;
+}
+
+.contact-form__btn-wrap .btn-wrap svg {
+  fill: #DB302C;
+}
+
 .projects {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1353,6 +1361,20 @@ textarea:focus {
   -webkit-transform: scale(0, 1);
   -ms-transform: scale(0, 1);
   transform: scale(0, 1);
+}
+
+/* -----------------------------------------
+ Page
+----------------------------------------- */
+
+.page-content {
+  margin-bottom: 36px;
+  padding-bottom: 34px;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.page-content .entry-header {
+  text-align: left;
 }
 
 @media (min-width: 1200px) {

@@ -64,6 +64,16 @@
 			}
 		}
 	}
+	&__btn-wrap {
+		.btn-wrap {
+			&:not(:last-of-type) {
+				margin-bottom :19px;
+			}
+			svg {
+				fill :$red;
+			}
+		}
+	}
 }
 .projects {
 	display      :flex;

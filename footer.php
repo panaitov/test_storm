@@ -29,14 +29,24 @@
                 if($contact_form && is_front_page()) :
                   echo $contact_form;
                 else:
-                  if(have_rows('contact_buttons')):
-                    while (have_rows('contact_buttons')): the_row();
+                  if(have_rows('contact_buttons')):?>
+	                  <div class="contact-form__btn-wrap">
+                   <?php while (have_rows('contact_buttons')): the_row();
                       $title = get_sub_field('contact_button_title');
                       $link = get_sub_field('contact_button_link'); ?>
-
-											<a class="btn btn--white" href="<?php echo $link; ?>"><?php echo $title; ?></a>
-                    <?php endwhile;
-                  endif;
+	                    <div class="btn-wrap btn-wrap--bg-white">
+		                    <a class="btn" href="<?php echo $link; ?>">
+			                    <span><?php echo $title; ?></span>
+			                    <svg>
+				                    <use xlink:href="#arrow-icon"/>
+			                    </svg>
+		                    </a>
+		                    <span class="btn-wrap__shadow" style="top: -35px; left: 273px;"></span>
+	                    </div>
+                    <?php endwhile;?>
+                    </div>
+	                  <!-- /.contact-form__action -->
+                 <?php endif;
                 endif;
               endwhile; ?>
 						</div>
