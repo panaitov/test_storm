@@ -3,15 +3,15 @@
 ----------------------------------------- */
 .breadcrumbs {
 	margin-bottom :27px;
-	font-size   :14px;
-	font-weight :400;
-	line-height :1.64;
+	font-size     :14px;
+	font-weight   :400;
+	line-height   :1.64;
 	&__inner {
+		@extend %section-border;
 		padding-top    :17px;
 		padding-bottom :17px;
-		border-bottom  :1px solid #D4D4D4;
 		& > span {
-			padding-left :13px;
+			padding-left  :13px;
 			padding-right :13px;
 			&:first-child {
 				padding-left :0;
@@ -19,8 +19,8 @@
 		}
 	}
 	a {
-		color        :$red;
-		position     :relative;
+		color    :$red;
+		position :relative;
 		&:before {
 			content          :'';
 			position         :absolute;

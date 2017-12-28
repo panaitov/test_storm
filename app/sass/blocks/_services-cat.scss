@@ -4,6 +4,9 @@
 .services-cat {
 	padding-top    :39px;
 	padding-bottom :22px;
+	&--padding {
+		padding-bottom :0;
+	}
 	@include max-width(sm) {
 		padding-top    :30px;
 		padding-bottom :0;

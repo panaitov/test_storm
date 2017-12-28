@@ -306,7 +306,9 @@ input.wpcf7-not-valid {
   box-shadow: inset 0 0 5px #DB302C;
 }
 
-.services .container {
+.breadcrumbs__inner,
+.services .container,
+.page-content {
   border-bottom: 1px solid #D4D4D4;
 }
 
@@ -654,7 +656,6 @@ textarea:focus {
 .breadcrumbs__inner {
   padding-top: 17px;
   padding-bottom: 17px;
-  border-bottom: 1px solid #D4D4D4;
 }
 
 .breadcrumbs__inner > span {
@@ -707,6 +708,10 @@ textarea:focus {
   padding-bottom: 34px;
   background-color: #FD0;
   color: #000;
+}
+
+.franchise-form--margin {
+  margin-bottom: 5px;
 }
 
 .franchise-form__inner {
@@ -901,6 +906,10 @@ textarea:focus {
 .services-cat {
   padding-top: 39px;
   padding-bottom: 22px;
+}
+
+.services-cat--padding {
+  padding-bottom: 0;
 }
 
 .services-cat__title {
@@ -1370,7 +1379,6 @@ textarea:focus {
 .page-content {
   margin-bottom: 36px;
   padding-bottom: 34px;
-  border-bottom: 1px solid #d4d4d4;
 }
 
 .page-content .entry-header {

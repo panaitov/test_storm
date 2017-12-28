@@ -6,6 +6,12 @@
  *
  * @package StormGuard
  */
+if( is_front_page()) {
+  $padding= '';
+} else{
+  $padding= 'services-cat--padding';
+}
+
 global $post;
 $post_id = 135;
 $queryArgs = array(
@@ -18,7 +24,7 @@ $query = new WP_Query($queryArgs); ?>
 <?php if($query->have_posts()):
   $post_object = get_post($post_id); ?>
 	<!-- Begin services-cat -->
-	<section class="services-cat">
+	<section class="services-cat <?php echo $padding;?>">
 		<div class="container">
 			<h3 class="section-title services-cat__title"><?php echo get_the_title($post_id); ?></h3>
 			<div class="services-cat__desc"><?php echo $post_object->post_content; ?></div>

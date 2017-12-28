@@ -30,12 +30,14 @@ if($query->have_posts()): ?>
         <?php while ($query->have_posts()): $query->the_post();
           ?>
 					<div class="col-sm-6 col-md-4 service">
-						<div class="service__icon">
-							<img src="<?php the_field('services_icon', $post->ID); ?>" alt="<?php the_title(); ?>">
-						</div>
-						<!-- /.service__icon -->
-						<p class="service__title"><?php the_title(); ?></p>
-						<p><?php the_content(); ?></p>
+						<a href="<?php the_permalink(); ?>">
+							<div class="service__icon">
+								<img src="<?php the_field('services_icon', $post->ID); ?>" alt="<?php the_title(); ?>">
+							</div>
+							<!-- /.service__icon -->
+							<p class="service__title"><?php the_title(); ?></p>
+							<p><?php the_content(); ?></p>
+						</a>
 					</div>
 					<!-- /.service -->
         <?php endwhile; ?>

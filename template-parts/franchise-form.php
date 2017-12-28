@@ -9,9 +9,15 @@
 $franchise_title = get_field('franchise_title', 'option');
 $franchise_desc = get_field('franchise_desc', 'option');
 $franchise_form = get_field('franchise_form', 'option');
+
+if( is_front_page()) {
+	$margin = '';
+} else{
+  $margin = 'franchise-form--margin';
+}
 ?>
 
-<div class="franchise-form">
+<div class="franchise-form <?php echo $margin; ?>">
 	<div class="container">
 		<div class="franchise-form__inner">
 			<div class="franchise-form__item">
@@ -33,5 +39,6 @@ $franchise_form = get_field('franchise_form', 'option');
 		<!-- /.franchise-form__inner -->
 	</div>
 	<!-- /.container -->
+
 </div>
 <!-- /.franchise-form -->

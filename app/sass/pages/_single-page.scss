@@ -1,7 +1,12 @@
 /* -----------------------------------------
- Page
+ Single Page
 ----------------------------------------- */
-.page-content {
+.entry-content {
+	p {
+		&:not(:last-child) {
+			margin-bottom :30px;
+		}
+	}
 	@extend %section-border;
 	margin-bottom  :36px;
 	padding-bottom :34px;

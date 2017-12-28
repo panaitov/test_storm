@@ -6,6 +6,9 @@
 	padding-bottom :34px;
 	background-color :$yellow;
 	color :$main;
+	&--margin {
+		margin-bottom :5px;
+	}
 	&__inner {
 		position :relative;
 		display :flex;
