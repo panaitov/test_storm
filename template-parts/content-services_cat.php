@@ -10,7 +10,7 @@ global $post;
 $post_id = 135;
 $queryArgs = array(
   'post_type'   => 'page',
-  'post_parent' => $post_id,
+  'post__in' => array(16, 18, 14),
   'orderby'     => 'date',
   'order'       => 'DESC'
 );

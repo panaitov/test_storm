@@ -434,6 +434,10 @@ textarea:focus {
   background-size: cover;
 }
 
+.header--padding {
+  padding-top: 173px;
+}
+
 .head-top {
   position: fixed;
   top: 0;
@@ -634,6 +638,64 @@ textarea:focus {
 
 .intro__title--color {
   color: #FD0;
+}
+
+/* -----------------------------------------
+ Breadcrumbs
+----------------------------------------- */
+
+.breadcrumbs {
+  margin-bottom: 27px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.64;
+}
+
+.breadcrumbs__inner {
+  padding-top: 17px;
+  padding-bottom: 17px;
+  border-bottom: 1px solid #D4D4D4;
+}
+
+.breadcrumbs__inner > span {
+  padding-left: 13px;
+  padding-right: 13px;
+}
+
+.breadcrumbs__inner > span:first-child {
+  padding-left: 0;
+}
+
+.breadcrumbs a {
+  color: #DB302C;
+  position: relative;
+}
+
+.breadcrumbs a:before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  -webkit-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  transform: scale(1, 1);
+  -webkit-transform-origin: 0 100%;
+  -ms-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+  background-color: currentColor;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+
+.breadcrumbs a:hover:before,
+.breadcrumbs a:focus:before {
+  -webkit-transform: scale(0, 1);
+  -ms-transform: scale(0, 1);
+  transform: scale(0, 1);
 }
 
 /* -----------------------------------------
