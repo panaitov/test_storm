@@ -6,14 +6,49 @@
  *
  * @package StormGuard
  */
-global $post;
-$services_title = get_field('services_title', $post->ID);
-$services_description = get_field('services_description', $post->ID);
-$queryArgs = array(
-  'post_type' => 'our_services',
-  'orderby'   => 'date',
-  'order'     => 'DESC'
-);
+
+$post_id = get_the_ID();
+$cat = get_the_category($post_id);
+$cat_slug = $cat[0]->slug;
+$cat_id = $cat[0]->term_id;
+$page = get_page_by_path($cat_slug);
+$page_id = $page->ID;
+$services_title = get_field('services_title', $page_id);
+$services_description = get_field('services_description', $page_id);
+
+if($services_title != NULL) {
+  $services_title = get_field('services_title', $page_id);
+} else {
+  $services_title = get_field('services_title', 2);
+}
+if($services_description != NULL) {
+  $services_description = get_field('services_description', $page_id);
+} else {
+  $services_description = get_field('services_description', 2);
+}
+
+if(is_single()) {
+  $queryArgs = array(
+    'post_type'      => 'our_services',
+    'posts_per_page' => 6,
+    'orderby'        => 'date',
+    'order'          => 'DESC',
+    'post__not_in'   => array($post_id),
+    'tax_query'      => array(
+      array(
+        'taxonomy' => 'category',
+        'field'    => 'id',
+        'terms'    => $cat_id
+      )
+    )
+  );
+} else {
+  $queryArgs = array(
+    'post_type' => 'our_services',
+    'orderby'   => 'date',
+    'order'     => 'DESC'
+  );
+}
 $query = new WP_Query($queryArgs);
 
 if($query->have_posts()): ?>
@@ -36,7 +71,10 @@ if($query->have_posts()): ?>
 							</div>
 							<!-- /.service__icon -->
 							<p class="service__title"><?php the_title(); ?></p>
-							<p><?php the_content(); ?></p>
+							<p><?php
+                $trimmed_content = wp_trim_words(get_the_content(), 20, '');
+                echo $trimmed_content;
+                ?></p>
 						</a>
 					</div>
 					<!-- /.service -->

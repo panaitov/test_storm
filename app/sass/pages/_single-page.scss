@@ -1,17 +1,15 @@
 /* -----------------------------------------
  Single Page
 ----------------------------------------- */
-.entry-content {
+.page-content {
+	.entry-title {
+		margin-bottom :18px;
+	}
 	p {
+		line-height :1.37;
 		&:not(:last-child) {
 			margin-bottom :30px;
 		}
-	}
-	@extend %section-border;
-	margin-bottom  :36px;
-	padding-bottom :34px;
-	.entry-header {
-		text-align :left;
 	}
 }
 

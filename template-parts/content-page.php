@@ -6,17 +6,16 @@
  *
  * @package stormguard
  */
-
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('page-content row'); ?>>
-	<div class="col-sm-5">
+	<div class="col-sm-6">
     <?php stormguard_post_thumbnail(); ?>
 	</div>
 	<!-- /.col -->
-	<div class="col-sm-7">
+	<div class="col-sm-6">
 		<header class=" section-title entry-header">
-      <?php the_title('<h3 class="entry-title">', '</h3>'); ?>
+      <?php the_title('<h2 class="entry-title">', '</h2>'); ?>
 		</header><!-- .entry-header -->
 		<div class="entry-content">
       <?php the_content(); ?>

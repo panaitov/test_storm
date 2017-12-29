@@ -4,9 +4,12 @@
 .services {
 	.container {
 		@extend %section-border;
-		padding-top    :36px;
-		padding-bottom :32px;
+		padding-bottom :19px;
 		text-align     :center;
+		.home & {
+			padding-top    :36px;
+			padding-bottom :32px;
+		}
 	}
 	&__title {
 		margin-bottom :5px;

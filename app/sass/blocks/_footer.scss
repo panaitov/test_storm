@@ -54,7 +54,8 @@
 			}
 		}
 	}
-	&__action {
+	&__action,
+	&__btn-wrap {
 		text-align :right;
 		.btn {
 			padding :20px 34px;
@@ -67,11 +68,14 @@
 	&__btn-wrap {
 		.btn-wrap {
 			&:not(:last-of-type) {
-				margin-bottom :19px;
+				margin-bottom :15px;
 			}
 			svg {
 				fill :$red;
 			}
+		}
+		.btn {
+			padding :20px 19px;
 		}
 	}
 }
@@ -108,7 +112,7 @@
 .project {
 	margin-right  :10px;
 	margin-left   :10px;
-	margin-bottom :20px;
+	margin-bottom :23px;
 	&__img {
 		width  :129px;
 		height :129px;

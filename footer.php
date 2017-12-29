@@ -30,23 +30,23 @@
                   echo $contact_form;
                 else:
                   if(have_rows('contact_buttons')):?>
-	                  <div class="contact-form__btn-wrap">
-                   <?php while (have_rows('contact_buttons')): the_row();
-                      $title = get_sub_field('contact_button_title');
-                      $link = get_sub_field('contact_button_link'); ?>
-	                    <div class="btn-wrap btn-wrap--bg-white">
-		                    <a class="btn" href="<?php echo $link; ?>">
-			                    <span><?php echo $title; ?></span>
-			                    <svg>
-				                    <use xlink:href="#arrow-icon"/>
-			                    </svg>
-		                    </a>
-		                    <span class="btn-wrap__shadow" style="top: -35px; left: 273px;"></span>
-	                    </div>
-                    <?php endwhile;?>
-                    </div>
-	                  <!-- /.contact-form__action -->
-                 <?php endif;
+										<div class="contact-form__btn-wrap">
+                      <?php while (have_rows('contact_buttons')): the_row();
+                        $title = get_sub_field('contact_button_title');
+                        $link = get_sub_field('contact_button_link'); ?>
+												<div class="btn-wrap btn-wrap--bg-white">
+													<a class="btn" href="<?php echo $link; ?>">
+														<span><?php echo $title; ?></span>
+														<svg>
+															<use xlink:href="#arrow-icon"/>
+														</svg>
+													</a>
+													<span class="btn-wrap__shadow" style="top: -35px; left: 273px;"></span>
+												</div>
+                      <?php endwhile; ?>
+										</div>
+										<!-- /.contact-form__action -->
+                  <?php endif;
                 endif;
               endwhile; ?>
 						</div>
@@ -87,7 +87,7 @@
 								</div>
 								<!-- /.project -->
               <?php endwhile; ?>
-              <?php if($btn_title) : ?>
+              <?php if($btn_title && is_front_page()) : ?>
 								<div class="projects__action">
 									<div class="btn-wrap btn-wrap--bg-white">
 										<a class="btn" href="<?php echo get_the_permalink($project_page_id); ?>">

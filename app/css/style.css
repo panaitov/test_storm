@@ -144,8 +144,16 @@ input {
 h3,
 h4 {
   font-family: "Barlow", sans-serif;
-  font-size: 32px;
   font-weight: 400;
+}
+
+h2 {
+  font-size: 38px;
+  line-height: 1;
+}
+
+h3 {
+  font-size: 32px;
 }
 
 h4 {
@@ -836,9 +844,13 @@ textarea:focus {
 ----------------------------------------- */
 
 .services .container {
+  padding-bottom: 19px;
+  text-align: center;
+}
+
+.home .services .container {
   padding-top: 36px;
   padding-bottom: 32px;
-  text-align: center;
 }
 
 .services__title {
@@ -904,12 +916,16 @@ textarea:focus {
 ----------------------------------------- */
 
 .services-cat {
-  padding-top: 39px;
+  padding-top: 30px;
   padding-bottom: 22px;
 }
 
 .services-cat--padding {
   padding-bottom: 0;
+}
+
+.home .services-cat {
+  padding-top: 39px;
 }
 
 .services-cat__title {
@@ -939,6 +955,10 @@ textarea:focus {
 }
 
 .services-cat-item {
+  margin-bottom: 21px;
+}
+
+.home .services-cat-item {
   margin-bottom: 30px;
 }
 
@@ -988,7 +1008,6 @@ textarea:focus {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  margin-top: 18px;
 }
 
 .testimonials .slick-dots li {
@@ -1046,7 +1065,7 @@ textarea:focus {
 ----------------------------------------- */
 
 .block-news {
-  padding-top: 21px;
+  padding-top: 14px;
   padding-bottom: 25px;
 }
 
@@ -1186,20 +1205,26 @@ textarea:focus {
   margin-right: 24px;
 }
 
-.contact-form__action {
+.contact-form__action,
+.contact-form__btn-wrap {
   text-align: right;
 }
 
-.contact-form__action .btn {
+.contact-form__action .btn,
+.contact-form__btn-wrap .btn {
   padding: 20px 34px;
 }
 
 .contact-form__btn-wrap .btn-wrap:not(:last-of-type) {
-  margin-bottom: 19px;
+  margin-bottom: 15px;
 }
 
 .contact-form__btn-wrap .btn-wrap svg {
   fill: #DB302C;
+}
+
+.contact-form__btn-wrap .btn {
+  padding: 20px 19px;
 }
 
 .projects {
@@ -1237,7 +1262,7 @@ textarea:focus {
 .project {
   margin-right: 10px;
   margin-left: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 23px;
 }
 
 .project__img {
@@ -1377,12 +1402,28 @@ textarea:focus {
 ----------------------------------------- */
 
 .page-content {
-  margin-bottom: 36px;
-  padding-bottom: 34px;
+  margin-bottom: 26px;
+  padding-bottom: 40px;
 }
 
 .page-content .entry-header {
   text-align: left;
+}
+
+/* -----------------------------------------
+ Single Page
+----------------------------------------- */
+
+.page-content .entry-title {
+  margin-bottom: 18px;
+}
+
+.page-content p {
+  line-height: 1.37;
+}
+
+.page-content p:not(:last-child) {
+  margin-bottom: 30px;
 }
 
 @media (min-width: 1200px) {
@@ -1447,6 +1488,10 @@ textarea:focus {
 
   .service:nth-child(2n + 3) {
     clear: both;
+  }
+
+  .services-cat-item {
+    margin-bottom: 30px;
   }
 
   .projects {
@@ -1518,7 +1563,8 @@ textarea:focus {
     padding-top: 30px;
   }
 
-  .contact-form__action .btn {
+  .contact-form__action .btn,
+  .contact-form__btn-wrap .btn {
     padding-top: 16px;
     padding-bottom: 16px;
   }

@@ -2,10 +2,13 @@
  Services
 ----------------------------------------- */
 .services-cat {
-	padding-top    :39px;
+	padding-top    :30px;
 	padding-bottom :22px;
 	&--padding {
 		padding-bottom :0;
+	}
+	.home & {
+		padding-top :39px;
 	}
 	@include max-width(sm) {
 		padding-top    :30px;
@@ -32,7 +35,13 @@
 	}
 }
 .services-cat-item {
-	margin-bottom :30px;
+	margin-bottom :21px;
+	@include max-width(md) {
+		margin-bottom :30px;
+	}
+	.home & {
+		margin-bottom :30px;
+	}
 	&__img {
 		height :201px;
 		img {
@@ -47,7 +56,7 @@
 	}
 	.btn-wrap__shadow {
 		@include max-width(sm) {
-			width :1500px;
+			width  :1500px;
 			height :1500px;
 		}
 	}
