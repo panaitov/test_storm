@@ -17,7 +17,7 @@
 	<div class="foot-top">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-6">
+				<div class="col-sm-6 foot-top__item">
           <?php
           $query = new WP_Query('p=45'); ?>
           <?php if($query->have_posts()): ?>
@@ -37,9 +37,6 @@
 												<div class="btn-wrap btn-wrap--bg-white">
 													<a class="btn" href="<?php echo $link; ?>">
 														<span><?php echo $title; ?></span>
-														<svg>
-															<use xlink:href="#arrow-icon"/>
-														</svg>
 													</a>
 													<span class="btn-wrap__shadow" style="top: -35px; left: 273px;"></span>
 												</div>
@@ -55,7 +52,7 @@
           wp_reset_query(); ?>
 				</div>
 				<!-- /.col -->
-				<div class="col-sm-6">
+				<div class="col-sm-6 foot-top__item">
           <?php
           $project_page_id = 64;
           $queryArgs = array(
@@ -68,13 +65,21 @@
           <?php if($query->have_posts()):
             $title = get_field('projects_title', $project_page_id);
             $desc = get_field('projects_desc', $project_page_id);
-            $btn_title = get_field('projects_button_title', $project_page_id); ?>
+            $btn_title = get_field('projects_button_title', $project_page_id);
+            $link_title = get_field('projects_link_title', $project_page_id); ?>
 						<div class="projects">
               <?php if($title) : ?>
 								<h3 class="projects__title"><?php echo $title ?></h3>
               <?php endif; ?>
               <?php if($desc) : ?>
-								<div class="projects__desc"><?php echo $desc; ?></div>
+								<div class="projects__desc">
+									<p>
+										<?php echo $desc; ?>
+	                  <?php if(!is_front_page()) : ?>
+											<a class="projects__desc-link" href="<?php echo get_the_permalink($project_page_id); ?>"><?php echo $link_title; ?></a>
+	                  <?php endif; ?>
+									</p>
+								</div>
               <?php endif; ?>
               <?php while ($query->have_posts()): $query->the_post() ?>
 								<div class="project">

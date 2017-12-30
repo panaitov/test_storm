@@ -5,11 +5,50 @@
 	color :$white;
 }
 .foot-top {
+	padding-bottom   :24px;
 	padding-top      :29px;
 	background-color :$red;
+	&__item {
+		@include min-width(sm) {
+			position :relative;
+			&:nth-child(even) {
+				padding-left :45px;
+				&:before,
+				&:after {
+					content  :'';
+					position :absolute;
+					top      :0;
+					bottom   :0;
+					width    :1px;
+				}
+				&:before {
+					left             :1px;
+					background-color :#BB2723;
+				}
+				&:after {
+					left             :0;
+					background-color :#E6534F;
+				}
+			}
+			&:nth-child(odd) {
+				padding-right :45px;
+			}
+		}
+		.home & {
+			&:nth-child(even) {
+				padding-left :15px;
+				&:before,
+				&:after {
+					content :none;
+				}
+			}
+			&:nth-child(odd) {
+				padding-right :15px;
+			}
+		}
+	}
 }
-.contact-form,
-.projects {
+.contact-form {
 	&__title {
 		margin-bottom  :18px;
 		text-transform :capitalize;
@@ -29,6 +68,9 @@
 		padding :0;
 		margin  :0 0 24px;
 		border  :0;
+		&:last-of-type {
+			margin-bottom :0;
+		}
 		input,
 		select,
 		textarea {
@@ -54,8 +96,7 @@
 			}
 		}
 	}
-	&__action,
-	&__btn-wrap {
+	&__action {
 		text-align :right;
 		.btn {
 			padding :20px 34px;
@@ -76,6 +117,10 @@
 		}
 		.btn {
 			padding :20px 19px;
+			@include max-width(sm) {
+				padding-top    :16px;
+				padding-bottom :16px;
+			}
 		}
 	}
 }
@@ -97,7 +142,43 @@
 		margin-left  :10px;
 		margin-right :10px;
 	}
+	&__title {
+		margin-bottom  :18px;
+		text-transform :capitalize;
+		@include max-width(xxs) {
+			margin-bottom :12px;
+		}
+	}
+	&__desc {
+		display       :flex;
+		flex-wrap     :wrap;
+		align-items   :center;
+		margin-bottom :6px;
+	}
+	&__desc-link {
+		position    :relative;
+		font-weight :700;
+		&:before {
+			content          :'';
+			position         :absolute;
+			top              :100%;
+			left             :0;
+			right            :0;
+			height           :1px;
+			transform        :scale(1, 1);
+			transform-origin :0 100%;
+			background-color :$white;
+			transition       :transform 0.3s ease;
+		}
+		&:hover,
+		&:focus {
+			&:before {
+				transform :scale(0, 1);
+			}
+		}
+	}
 	&__action {
+		margin-top :25px;
 		width      :100%;
 		text-align :center;
 		.btn {
@@ -110,12 +191,16 @@
 	}
 }
 .project {
-	margin-right  :10px;
-	margin-left   :10px;
-	margin-bottom :23px;
+	margin-right :10px;
+	margin-left  :10px;
+	margin-top   :23px;
 	&__img {
-		width  :129px;
-		height :129px;
+		width  :123px;
+		height :123px;
+		.home & {
+			width  :129px;
+			height :129px;
+		}
 		@supports (object-fit:cover) {
 			img {
 				width      :100%;

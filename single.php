@@ -18,7 +18,6 @@ get_header(); ?>
           get_template_part('template-parts/content', 'page');
 
         endwhile; // End of the loop.
-        //locate_template('template-parts/content-services.php', true);
         get_template_part('template-parts/content', 'services');
 
         get_template_part('template-parts/content', 'services_cat'); ?>

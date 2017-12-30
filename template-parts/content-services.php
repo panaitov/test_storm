@@ -42,6 +42,22 @@ if(is_single()) {
       )
     )
   );
+} else if( is_page(array(14,16,18)) ) {
+	global $post;
+  $queryArgs = array(
+    'post_type'      => 'our_services',
+    'posts_per_page' => 6,
+    'orderby'        => 'date',
+    'order'          => 'DESC',
+    'post__not_in'   => array($post_id),
+    'tax_query'      => array(
+      array(
+        'taxonomy' => 'category',
+        'field'    => 'slug',
+        'terms'    => ''.$post->post_name
+      )
+    )
+  );
 } else {
   $queryArgs = array(
     'post_type' => 'our_services',
