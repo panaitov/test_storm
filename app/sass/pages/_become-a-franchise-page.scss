@@ -1,0 +1,30 @@
+/* -----------------------------------------
+ Franchise page
+----------------------------------------- */
+.franchise-info {
+	&__img {
+		float       :right;
+		margin-left :17px;
+		width       :50%;
+		@include max-width(sm) {
+			float :none;
+			margin-left :auto;
+			margin-right :auto;
+			margin-bottom :30px;
+		}
+		@include max-width(xxs) {
+			width :100%;
+		}
+	}
+	h3 {
+		line-height   :1;
+		margin-bottom :18px;
+	}
+	p {
+		margin-bottom :29px;
+	}
+	a {
+		@extend %link-border;
+		color :$red;
+	}
+}

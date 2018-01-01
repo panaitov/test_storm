@@ -16,12 +16,12 @@ $page_id = $page->ID;
 $services_title = get_field('services_title', $page_id);
 $services_description = get_field('services_description', $page_id);
 
-if($services_title != NULL) {
+if($services_title != NULL && is_single()) {
   $services_title = get_field('services_title', $page_id);
 } else {
   $services_title = get_field('services_title', 2);
 }
-if($services_description != NULL) {
+if($services_description != NULL && is_single()) {
   $services_description = get_field('services_description', $page_id);
 } else {
   $services_description = get_field('services_description', 2);
@@ -81,7 +81,7 @@ if($query->have_posts()): ?>
         <?php while ($query->have_posts()): $query->the_post();
           ?>
 					<div class="col-sm-6 col-md-4 service">
-						<a href="<?php the_permalink(); ?>">
+						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 							<div class="service__icon">
 								<img src="<?php the_field('services_icon', $post->ID); ?>" alt="<?php the_title(); ?>">
 							</div>

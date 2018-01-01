@@ -27,16 +27,26 @@ h1, h2, h3, h4, h5, h6, p, ul, ol, input {
 h3, h4 {
 	font-family :$second-font;
 	font-weight :400;
+	color       :$red;
 }
 h2 {
-	font-size :38px;
+	font-size   :38px;
 	line-height :1;
+	@include max-width(sm) {
+		font-size :26px;
+	}
 }
 h3 {
-	font-size   :32px;
+	font-size :32px;
+	@include max-width(sm) {
+		font-size :24px;
+	}
 }
 h4 {
 	font-size :28px;
+	@include max-width(sm) {
+		font-size :22px;
+	}
 }
 img {
 	max-width :100%;
@@ -160,9 +170,7 @@ input.wpcf7-not-valid {
 	border-bottom :1px solid #D4D4D4;
 }
 .section-title {
-	font-family :$second-font;
-	color       :$red;
-	text-align  :center;
+	text-align :center;
 }
 .slick-slide {
 	outline :0;
@@ -173,6 +181,27 @@ input.wpcf7-not-valid {
 	color          :$red;
 	margin-left    :5px;
 	white-space    :nowrap;
+	&:before {
+		content          :'';
+		position         :absolute;
+		top              :100%;
+		left             :0;
+		right            :0;
+		height           :1px;
+		transform        :scale(1, 1);
+		transform-origin :0 100%;
+		background-color :currentColor;
+		transition       :transform 0.3s ease;
+	}
+	&:hover,
+	&:focus {
+		&:before {
+			transform :scale(0, 1);
+		}
+	}
+}
+%link-border {
+	position :relative;
 	&:before {
 		content          :'';
 		position         :absolute;

@@ -60,8 +60,8 @@
 		font-family :$second-font;
 		font-weight :400;
 		line-height :1.1;
-		@include max-width(xxs) {
-			font-size :32px;
+		@include max-width(sm) {
+			font-size :26px;
 			margin-bottom :12px;
 		}
 	}

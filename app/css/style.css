@@ -145,6 +145,7 @@ h3,
 h4 {
   font-family: "Barlow", sans-serif;
   font-weight: 400;
+  color: #DB302C;
 }
 
 h2 {
@@ -321,8 +322,6 @@ input.wpcf7-not-valid {
 }
 
 .section-title {
-  font-family: "Barlow", sans-serif;
-  color: #DB302C;
   text-align: center;
 }
 
@@ -360,6 +359,45 @@ input.wpcf7-not-valid {
 
 .excerpt_link:hover:before,
 .excerpt_link:focus:before {
+  -webkit-transform: scale(0, 1);
+  -ms-transform: scale(0, 1);
+  transform: scale(0, 1);
+}
+
+.breadcrumbs a,
+.foot-nav__list li a,
+.franchise-info a {
+  position: relative;
+}
+
+.breadcrumbs a:before,
+.foot-nav__list li a:before,
+.franchise-info a:before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  -webkit-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  transform: scale(1, 1);
+  -webkit-transform-origin: 0 100%;
+  -ms-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+  background-color: currentColor;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+
+.breadcrumbs a:hover:before,
+.foot-nav__list li a:hover:before,
+.franchise-info a:hover:before,
+.breadcrumbs a:focus:before,
+.foot-nav__list li a:focus:before,
+.franchise-info a:focus:before {
   -webkit-transform: scale(0, 1);
   -ms-transform: scale(0, 1);
   transform: scale(0, 1);
@@ -677,34 +715,6 @@ textarea:focus {
 
 .breadcrumbs a {
   color: #DB302C;
-  position: relative;
-}
-
-.breadcrumbs a:before {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  height: 1px;
-  -webkit-transform: scale(1, 1);
-  -ms-transform: scale(1, 1);
-  transform: scale(1, 1);
-  -webkit-transform-origin: 0 100%;
-  -ms-transform-origin: 0 100%;
-  transform-origin: 0 100%;
-  background-color: currentColor;
-  -webkit-transition: -webkit-transform 0.3s ease;
-  transition: -webkit-transform 0.3s ease;
-  transition: transform 0.3s ease;
-  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
-}
-
-.breadcrumbs a:hover:before,
-.breadcrumbs a:focus:before {
-  -webkit-transform: scale(0, 1);
-  -ms-transform: scale(0, 1);
-  transform: scale(0, 1);
 }
 
 /* -----------------------------------------
@@ -837,6 +847,30 @@ textarea:focus {
 
 .franchise-form .btn {
   padding: 16px 38px;
+}
+
+/* -----------------------------------------
+ Fill out form
+----------------------------------------- */
+
+.fill-out-form__btn {
+  padding: 27px 40px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.fill-out-form .franchise-form__inner {
+  margin-left: 0;
+  margin-right: auto;
+  padding-left: 0;
+}
+
+.fill-out-form .franchise-form__inner:before {
+  content: none;
+}
+
+.fill-out-form .franchise-form__item:nth-child(2) {
+  text-align: right;
 }
 
 /* -----------------------------------------
@@ -1154,6 +1188,10 @@ textarea:focus {
   color: #FFF;
 }
 
+.footer h3 {
+  color: #FFF;
+}
+
 .foot-top {
   padding-bottom: 24px;
   padding-top: 29px;
@@ -1398,35 +1436,7 @@ textarea:focus {
 }
 
 .foot-nav__list li a {
-  position: relative;
   padding-bottom: 2px;
-}
-
-.foot-nav__list li a:before {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  height: 1px;
-  -webkit-transform: scale(1, 1);
-  -ms-transform: scale(1, 1);
-  transform: scale(1, 1);
-  -webkit-transform-origin: 0 100%;
-  -ms-transform-origin: 0 100%;
-  transform-origin: 0 100%;
-  background-color: #FFF;
-  -webkit-transition: -webkit-transform 0.3s ease;
-  transition: -webkit-transform 0.3s ease;
-  transition: transform 0.3s ease;
-  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
-}
-
-.foot-nav__list li a:hover:before,
-.foot-nav__list li a:focus:before {
-  -webkit-transform: scale(0, 1);
-  -ms-transform: scale(0, 1);
-  transform: scale(0, 1);
 }
 
 .copyright {
@@ -1496,6 +1506,29 @@ textarea:focus {
 
 .page-content p:not(:last-child) {
   margin-bottom: 30px;
+}
+
+/* -----------------------------------------
+ Franchise page
+----------------------------------------- */
+
+.franchise-info__img {
+  float: right;
+  margin-left: 17px;
+  width: 50%;
+}
+
+.franchise-info h3 {
+  line-height: 1;
+  margin-bottom: 18px;
+}
+
+.franchise-info p {
+  margin-bottom: 29px;
+}
+
+.franchise-info a {
+  color: #DB302C;
 }
 
 @media screen and (min-width: 769px) {
@@ -1621,6 +1654,18 @@ textarea:focus {
 }
 
 @media screen and (max-width: 768px) {
+  h2 {
+    font-size: 26px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  h4 {
+    font-size: 22px;
+  }
+
   .btn {
     padding: 10px 35px;
   }
@@ -1639,6 +1684,11 @@ textarea:focus {
 
   .franchise-form__item {
     width: 100%;
+  }
+
+  .franchise-form__title {
+    font-size: 26px;
+    margin-bottom: 12px;
   }
 
   .franchise-form__desc {
@@ -1682,6 +1732,13 @@ textarea:focus {
     padding-top: 16px;
     padding-bottom: 16px;
   }
+
+  .franchise-info__img {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -1691,11 +1748,6 @@ textarea:focus {
 
   .franchise-form__inner:before {
     content: none;
-  }
-
-  .franchise-form__title {
-    font-size: 32px;
-    margin-bottom: 12px;
   }
 
   .testimonials-slide blockquote {
@@ -1713,5 +1765,9 @@ textarea:focus {
 
   .projects__title {
     margin-bottom: 12px;
+  }
+
+  .franchise-info__img {
+    width: 100%;
   }
 }
