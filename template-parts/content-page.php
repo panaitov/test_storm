@@ -11,15 +11,21 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class('page-content row'); ?>>
 	<?php if(get_the_post_thumbnail()) :?>
 		<div class="col-sm-6">
-	    <?php the_post_thumbnail(); ?>
+			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+		    <?php the_post_thumbnail(); ?>
+			</a>
 		</div>
 		<!-- /.col -->
 		<div class="col-sm-6">
 			<header class=" section-title entry-header">
-	      <?php the_title('<h2 class="entry-title">', '</h2>'); ?>
+	      <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 			</header><!-- .entry-header -->
 			<div class="entry-content">
-	      <?php the_content(); ?>
+	      <?php if(is_single()) {
+	      	the_content();
+	      } else{
+	      	the_excerpt();
+	      }?>
 			</div><!-- .entry-content -->
 		</div>
 		<!-- /.col -->

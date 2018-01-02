@@ -21,7 +21,7 @@
 		}
 	}
 }
-.news {
+.news-item {
 	border :1px solid #E1E1E1;
 	&__img {
 		position :relative;
@@ -46,6 +46,7 @@
 		font-weight      :400;
 		line-height      :1;
 		text-transform   :uppercase;
+		text-align       :center;
 		letter-spacing   :1.44px;
 		background-color :$yellow;
 		&--number {

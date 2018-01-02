@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying news content
+ * Template part for displaying projects content
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -25,27 +25,29 @@ $query = new WP_Query($queryArgs); ?>
 			<div class="row">
         <?php while ($query->have_posts()): $query->the_post() ?>
 					<div class="col-xs-6 col-sm-4 col-md-3 block-news__item">
-						<div class="news">
-							<div class="news__img">
+						<div class="news-item">
+							<div class="news-item__img">
 								<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
 							</div>
-							<!-- /.news__img -->
-							<div class="news__body">
-								<p class="news__title"><?php the_title(); ?></p>
+							<!-- /.news-item__img -->
+							<div class="news-item__body">
+								<p class="news-item__title"><?php the_title(); ?></p>
 								<p><?php the_excerpt(); ?></p>
 							</div>
-							<!-- /.news__body -->
+							<!-- /.news-item__body -->
 						</div>
-						<!-- /.news -->
+						<!-- /.news-item -->
 					</div>
 					<!-- /.col -->
         <?php endwhile; ?>
 			</div>
 			<!-- /.row -->
-			<div class="pagination">
-			  <?php wp_pagenavi( array( 'query' => $query ) ); ?>
-			</div>
-			<!-- /.pagination -->
+      <?php if(function_exists('wp_pagenavi')) : ?>
+				<div class="pagination">
+          <?php wp_pagenavi(array('query' => $query)); ?>
+				</div>
+				<!-- /.pagination -->
+      <?php endif; ?>
 		</div>
 		<!-- /.container -->
 	</section>

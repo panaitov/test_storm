@@ -3,6 +3,9 @@
 ----------------------------------------- */
 .pagination {
 	text-align :center;
+	.search-results & {
+		margin-bottom :30px;
+	}
 }
 .wp-pagenavi {
 	display :inline-block;

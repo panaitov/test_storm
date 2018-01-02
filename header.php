@@ -45,7 +45,6 @@
 <div id="page" class="site">
 
 	<header class="header <?php echo $padding; ?>" style="background-image:url(<?php echo $header_bg; ?>);">
-
 		<div class="overlay"></div>
 		<div class="head-top">
 			<div class="top-line">
