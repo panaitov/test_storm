@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying fill out form
+ * Template part for displaying become a franchise form
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -12,7 +12,7 @@ $fill_out_btn_title = get_field('fill_out_btn_title', 'option');
 
 ?>
 
-<div class="franchise-form fill-out-form">
+<div class="franchise-form become-franchise-form">
 	<div class="container">
 		<div class="franchise-form__inner">
 			<div class="franchise-form__item">
@@ -27,7 +27,7 @@ $fill_out_btn_title = get_field('fill_out_btn_title', 'option');
 			<div class="franchise-form__item">
         <?php if($fill_out_btn_title) :?>
 	        <div class="btn-wrap btn-wrap--bg-red">
-		        <a class="btn fill-out-form__btn" href="#modal-fill-out">
+		        <a class="btn become-franchise-form__btn" href="#modal-become-franchise">
 			        <span><?php echo $fill_out_btn_title;?></span>
 		        </a>
 		        <span class="btn-wrap__shadow" style="top: -35px; left: 273px;"></span>

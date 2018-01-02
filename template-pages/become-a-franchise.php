@@ -28,7 +28,7 @@ get_header(); ?>
         <?php endwhile; // End of the loop.; ?>
 			</div>
 			<!-- /.container -->
-      <?php get_template_part('template-parts/fill-out', 'form'); ?>
+      <?php get_template_part('template-parts/become-franchise', 'form'); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
