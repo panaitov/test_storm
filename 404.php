@@ -19,7 +19,7 @@ get_header(); ?>
 						<p>You may have mistyped the address or the page may have moved.</p>
 					</header><!-- .page-header -->
 					<div class="btn-wrap">
-						<a class="btn" href="/" title="Go Back">
+						<a class="btn btn-error-404" href="/" title="Go Back">
 							<span>Go back</span>
 						</a>
 						<span class="btn-wrap__shadow" style="top: -35px; left: 273px;"></span>

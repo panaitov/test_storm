@@ -81,6 +81,12 @@
 			slidesToShow: 1
 		});
 
+		/* Error 404 button*/
+		$(document).on('click', '.btn-error-404', function(e) {
+			e.preventDefault();
+			window.history.back();
+		}); //end click
+
 	});	/* end ready*/
 
 	$(window).on('load resize', function() {
