@@ -17,11 +17,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   <?php if(is_front_page()) :
     $header_bg = get_header_image();
-  $padding = '';?>
+    $padding = ''; ?>
 		<title><?php bloginfo('name'); ?></title>
   <?php else :
     $custom_header_bg = get_field('header_bg');
-  $padding = 'header--padding';
+    $padding = 'header--padding';
     if($custom_header_bg) {
       $header_bg = $custom_header_bg;
     } else {
@@ -45,6 +45,8 @@
 <div id="page" class="site">
 
 	<header class="header <?php echo $padding; ?>" style="background-image:url(<?php echo $header_bg; ?>);">
+
+		<div class="overlay"></div>
 		<div class="head-top">
 			<div class="top-line">
 				<span id="top-hover-line" class="hover-line"></span>
@@ -77,9 +79,16 @@
 			<div class="head-nav">
 				<span id="bottom-hover-line" class="hover-line hover-line--bottom"></span>
 				<div class="container head-nav__inner">
-          <?php
-          the_custom_logo(); ?>
+					<div class="head-nav__img">
+	          <?php the_custom_logo(); ?>
+					</div>
+					<!-- /.head-nav__img -->
 					<nav class="main-nav">
+						<button class="hamburger hamburger--arrowturn-r" type="button">
+						  <span class="hamburger-box">
+						    <span class="hamburger-inner"></span>
+						  </span>
+						</button>
             <?php
             wp_nav_menu(array(
               'theme_location' => 'header-menu',
@@ -94,36 +103,53 @@
 			<!-- /.head-nav -->
 		</div>
 		<!-- /.head-top -->
-		<?php if(is_front_page()) :?>
+    <?php if(is_front_page()) : ?>
 			<div class="container">
-				<div class="intro">
-					<h1 class="intro__title">Does Your Home or Property Have
-						<span class="intro__title--color">Storm Damage</span> or
-						<span class="intro__title--color">Need an Update?</span></h1>
-					<div class="intro__action">
-						<div class="btn-wrap">
-							<a class="btn" href="#">
-								<span>Contact Us Today</span>
-								<svg>
-									<use xlink:href="#arrow-icon"/>
-								</svg>
-							</a>
-							<span class="btn-wrap__shadow" style="top: -35px; left: 273px;"></span>
+        <?php
+        $intro_title = get_field('intro_title', 2);
+        $intro_btn_title = get_field('intro_btn_title', 2);
+        if($intro_title) :?>
+					<div class="intro">
+						<p class="intro__title"><?php echo $intro_title; ?></p>
+						<div class="intro__action">
+							<div class="btn-wrap">
+								<a class="btn" href="#">
+									<span><?php echo $intro_btn_title; ?></span>
+									<svg>
+										<use xlink:href="#arrow-icon"/>
+									</svg>
+								</a>
+								<span class="btn-wrap__shadow" style="top: -35px; left: 273px;"></span>
+							</div>
 						</div>
+						<!-- /.intro__action -->
 					</div>
-					<!-- /.intro__action -->
-				</div>
-				<!-- /.intro -->
+					<!-- /.intro -->
+        <?php endif; ?>
 			</div>
 			<!-- /.container -->
-		<?php endif; ?>
+    <?php endif; ?>
+		<div class="mobile-menu">
+      <?php
+      wp_nav_menu(array(
+        'theme_location' => 'top-menu',
+        'container'      => 'ul',
+        'menu_class'     => 'mobile-menu__list',
+      ));
+      wp_nav_menu(array(
+        'theme_location' => 'header-menu',
+        'container'      => 'ul',
+        'menu_class'     => 'mobile-menu__list',
+      )); ?>
+		</div>
+		<!-- /.mobile-menu -->
 	</header>
   <?php if(function_exists('bcn_display') && !is_front_page()) {
     ?>
 		<div class="breadcrumbs">
 			<div class="container">
 				<div class="breadcrumbs__inner">
-					<?php bcn_display(); ?>
+          <?php bcn_display(); ?>
 				</div>
 				<!-- /.breadcrumbs__inner -->
 			</div>

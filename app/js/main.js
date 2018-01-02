@@ -1,5 +1,10 @@
 ;(function($) {
 
+	var lastScrollTop = 0,
+			$head_top = $('.head-top'),
+			$mobileMenuAndHamburger = $('.mobile-menu, .hamburger');
+			$overlay = $('.overlay');
+
 	$(document).ready(function() {
 		/* magic line */
 		var $top_hover_line = $('#top-hover-line');
@@ -50,6 +55,24 @@
 			$(this).find('.btn-wrap__shadow').css({top: relY, left: relX})
 		});
 
+		/*  Mobile menu*/
+		$(document).on('click', '.hamburger', function() {
+			classAction($mobileMenuAndHamburger, 'is-active', 'toggle');
+			classAction($overlay, 'is-active', 'toggle');
+		});
+
+		/*Loading page after 300ms closing mobile menu*/
+		$(document).on('click', '.mobile-menu__list a', function(e) {
+			if( window.matchMedia('(max-width: 768px)').matches ) {
+				e.preventDefault();
+				var link = $(this).attr('href');
+				classAction($mobileMenuAndHamburger, 'is-active', 'remove');
+				setTimeout(function() {
+					window.location.href = link;
+				}, 300);
+			}
+		});
+
 		/* Testimonials slider*/
 		$('.testimonials-slider').slick({
 			arrows: false,
@@ -61,11 +84,27 @@
 	});	/* end ready*/
 
 	$(window).on('load resize', function() {
+		/* Hide mobile menu*/
+		classAction($mobileMenuAndHamburger, 'is-active', 'remove');
+		classAction($overlay, 'is-active', 'remove');
 
+		/* Delete head-top element scroll-down class*/
+		classAction($head_top, 'scroll-down', 'remove');
 	});	/* end load resize*/
 
 	$(window).on('scroll', function() {
-
+		/* Hide top line when scrolling down and show when scrolling up on desktop*/
+		if( window.matchMedia('(min-width: 769px)').matches ) {
+			var scroll_direction =  $(this).scrollTop();
+			if (scroll_direction > lastScrollTop){
+				/*scroll down code*/
+				$head_top.addClass('scroll-down');
+			} else {
+				/*scroll up code*/
+				$head_top.removeClass('scroll-down');
+			}
+			lastScrollTop = scroll_direction;
+		}
 	});	/* end scroll*/
 
 	/* Hover line for header menus*/
@@ -78,6 +117,17 @@
 	}
 	function resetLineHoverPosition(line) {
 		line.width('0').css('left', '0');
+	}
+
+	/* add, delete, toggle class*/
+	function classAction(el, cls, action) {
+		if(action === 'toggle') {
+			$(el).toggleClass(cls);
+		} else if( action === 'add'){
+			$(el).addClass(cls);
+		} else {
+			$(el).removeClass(cls);
+		}
 	}
 })(jQuery);
 

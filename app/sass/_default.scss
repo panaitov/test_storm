@@ -137,7 +137,7 @@ svg {
 }
 .btn {
 	position       :relative;
-	display        :inline-flex;
+	display        :flex;
 	align-items    :center;
 	padding        :16px 25px;
 	font-size      :16px;
@@ -148,7 +148,7 @@ svg {
 	transition     :color 0.3s ease;
 	z-index        :1;
 	@include max-width(sm) {
-		padding :10px 35px;
+		padding :16px 35px;
 	}
 	svg {
 		width       :10px;
@@ -219,5 +219,22 @@ input.wpcf7-not-valid {
 		&:before {
 			transform :scale(0, 1);
 		}
+	}
+}
+
+.overlay {
+	opacity :0;
+	visibility :hidden;
+	position :fixed;
+	top :0;
+	left :0;
+	right :0;
+	bottom :0;
+	overflow :hidden;
+	z-index :99;
+	background-color : rgba(0, 0, 0, 0.7);
+	&.is-active {
+		opacity :1;
+		visibility :visible;
 	}
 }
