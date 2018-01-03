@@ -33,9 +33,9 @@
 										<div class="contact-form__btn-wrap">
                       <?php while (have_rows('contact_buttons')): the_row();
                         $title = get_sub_field('contact_button_title');
-                        $link = get_sub_field('contact_button_link'); ?>
+                        $modal = get_sub_field('contact_button_modal'); ?>
 												<div class="btn-wrap btn-wrap--bg-white">
-													<a class="btn" href="<?php echo $link; ?>">
+													<a class="js-modal-show btn" href="<?php echo $modal; ?>">
 														<span><?php echo $title; ?></span>
 													</a>
 													<span class="btn-wrap__shadow" style="top: -35px; left: 273px;"></span>
@@ -149,6 +149,52 @@
 	</div>
 	<!-- /.foot-bottom -->
 </footer>
+<!-- Modal window -->
+<div class="modal_contact_us modal-wrap">
+	<div class="modal">
+		<?php the_field('contact_form', 45); ?>
+		<button class="modal__btn">
+			<svg>
+				<use xlink:href="#modal-close-icon"/>
+			</svg>
+		</button>
+	</div>
+	<!-- /. modal -->
+</div>
+<div class="modal_become_franchise modal-wrap">
+	<div class="modal">
+    <?php the_field('franchise_form', 'option'); ?>
+		<button class="modal__btn">
+			<svg>
+				<use xlink:href="#modal-close-icon"/>
+			</svg>
+		</button>
+	</div>
+	<!-- /. modal -->
+</div>
+<div class="modal_local_franchise modal-wrap">
+	<div class="modal">
+    <?php echo do_shortcode('[contact-form-7 id="203" title="Local franchise"]') ?>
+		<button class="modal__btn">
+			<svg>
+				<use xlink:href="#modal-close-icon"/>
+			</svg>
+		</button>
+	</div>
+	<!-- /. modal -->
+</div>
+<div class="modal_office_franchise modal-wrap">
+	<div class="modal">
+    <?php echo do_shortcode('[contact-form-7 id="229" title="Office franchise"]') ?>
+		<button class="modal__btn">
+			<svg>
+				<use xlink:href="#modal-close-icon"/>
+			</svg>
+		</button>
+	</div>
+	<!-- /. modal -->
+</div>
+<!-- /. modal-wrap -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

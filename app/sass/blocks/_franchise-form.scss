@@ -72,14 +72,11 @@
 			margin-bottom :30px;
 		}
 	}
-	input[type="text"] {
-		border: 1px solid #b7b7b7;
-		background-color: #ffffff
-	}
 	&__label {
 		flex-grow:1;
 		margin-right :10px;
 		input {
+			@include placer(17px, 700);
 			width :100%;
 			padding :15px 17px;
 			border: 1px solid #b7b7b7;

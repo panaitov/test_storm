@@ -1,8 +1,9 @@
 ;(function($) {
 
-	var lastScrollTop = 0,
+	var last_scroll_top = 0,
+			$body = $('body'),
 			$head_top = $('.head-top'),
-			$mobileMenuAndHamburger = $('.mobile-menu, .hamburger');
+			$mobile_menu_and_hamburger = $('.mobile-menu, .hamburger');
 			$overlay = $('.overlay');
 
 	$(document).ready(function() {
@@ -57,7 +58,7 @@
 
 		/*  Mobile menu*/
 		$(document).on('click', '.hamburger', function() {
-			classAction($mobileMenuAndHamburger, 'is-active', 'toggle');
+			classAction($mobile_menu_and_hamburger, 'is-active', 'toggle');
 			classAction($overlay, 'is-active', 'toggle');
 		});
 
@@ -66,7 +67,7 @@
 			if( window.matchMedia('(max-width: 768px)').matches ) {
 				e.preventDefault();
 				var link = $(this).attr('href');
-				classAction($mobileMenuAndHamburger, 'is-active', 'remove');
+				classAction($mobile_menu_and_hamburger, 'is-active', 'remove');
 				setTimeout(function() {
 					window.location.href = link;
 				}, 300);
@@ -87,11 +88,29 @@
 			window.history.back();
 		}); //end click
 
+		/* Show, close modal*/
+		$(document).on('click', '.js-modal-show', function(event) {
+			event.preventDefault();
+			var modal = $(this).attr('href');
+			openCloseModal(modal);
+		}); // end click
+
+		$('.modal-wrap').click(function(e){
+			openCloseModal();
+		}).children().click(function(e){
+			e.stopPropagation();
+		}); // end click
+
+		$('.modal__btn').click(function(event) {
+			event.preventDefault();
+			openCloseModal();
+		}); // end click
+
 	});	/* end ready*/
 
 	$(window).on('load resize', function() {
 		/* Hide mobile menu*/
-		classAction($mobileMenuAndHamburger, 'is-active', 'remove');
+		classAction($mobile_menu_and_hamburger, 'is-active', 'remove');
 		classAction($overlay, 'is-active', 'remove');
 
 		/* Delete head-top element scroll-down class*/
@@ -102,14 +121,14 @@
 		/* Hide top line when scrolling down and show when scrolling up on desktop*/
 		if( window.matchMedia('(min-width: 769px)').matches ) {
 			var scroll_direction =  $(this).scrollTop();
-			if (scroll_direction > lastScrollTop){
+			if (scroll_direction > last_scroll_top){
 				/*scroll down code*/
 				$head_top.addClass('scroll-down');
 			} else {
 				/*scroll up code*/
 				$head_top.removeClass('scroll-down');
 			}
-			lastScrollTop = scroll_direction;
+			last_scroll_top = scroll_direction;
 		}
 	});	/* end scroll*/
 
@@ -133,6 +152,16 @@
 			$(el).addClass(cls);
 		} else {
 			$(el).removeClass(cls);
+		}
+	}
+	/* Show hide modal window*/
+	function openCloseModal() {
+		if( !$body.hasClass('js-overflow') ) {
+			$body.addClass('js-overflow');
+			$(arguments[0]).addClass('js-modal-open');
+		} else {
+			$body.removeClass('js-overflow');
+			$('.modal-wrap').removeClass('js-modal-open');
 		}
 	}
 })(jQuery);

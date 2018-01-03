@@ -27,7 +27,7 @@ $fill_out_btn_title = get_field('fill_out_btn_title', 'option');
 			<div class="franchise-form__item">
         <?php if($fill_out_btn_title) :?>
 	        <div class="btn-wrap btn-wrap--bg-red">
-		        <a class="btn become-franchise-form__btn" href="#modal-become-franchise">
+		        <a class="js-modal-show btn become-franchise-form__btn" href=".modal_become_franchise">
 			        <span><?php echo $fill_out_btn_title;?></span>
 		        </a>
 		        <span class="btn-wrap__shadow" style="top: -35px; left: 273px;"></span>

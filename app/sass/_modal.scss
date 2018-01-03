@@ -1,0 +1,120 @@
+/* -----------------------------------------
+ Modals
+----------------------------------------- */
+body {
+	&.js-overflow {
+		overflow :hidden;
+	}
+}
+.modal-wrap {
+	position            :fixed;
+	top                 :0;
+	left                :0;
+	right               :0;
+	bottom              :0;
+	width               :100%;
+	height              :1px;
+	min-height          :100%;
+	display             :flex;
+	padding-top         :4vh;
+	padding-bottom      :4vh;
+	z-index             :999;
+	background-color    :rgba(#323232, 0);
+	visibility          :hidden;
+	transition          :background-color 0.4s ease;
+	transition-property :background-color, visibility;
+	overflow-x          :hidden;
+	&.js-modal-open {
+		overflow-y       :auto;
+		overflow-x       :hidden;
+		visibility       :visible;
+		background-color :rgba(#323232, 0.6);
+	}
+}
+.modal {
+	position            :relative;
+	padding             :40px;
+	width               :95%;
+	max-width           :640px;
+	margin              :auto;
+	background-color    :#FFF;
+	opacity             :0;
+	visibility          :hidden;
+	transform           :scale(2);
+	transition          :0.4s ease;
+	transition-property :opacity, transform, visibility;
+	@include max-width(xxs) {
+		padding :50px 15px 25px;
+	}
+	.js-modal-open & {
+		visibility :visible;
+		opacity    :1;
+		transform  :scale(1);
+	}
+	&__btn {
+		display       :block;
+		position      :absolute;
+		top           :-1px;
+		right         :-1px;
+		width         :40px;
+		height        :40px;
+		line-height   :40px;
+		border-radius :0 0 0 10px;
+		box-shadow    :inset 0 0 0 40px #10455F;
+		transition    :box-shadow 0.2s ease-in-out;
+		&:hover {
+			box-shadow       :inset 0 0 0 1px #10455F;
+			background-color :#FFF;
+			svg {
+				fill :$red;
+			}
+		}
+		svg {
+			display        :inline-block;
+			vertical-align :middle;
+			width          :25px;
+			height         :25px;
+			fill           :#FFF;
+			transition     :fill 0.2s ease-in-out;
+		}
+	}
+	.contact-form {
+		&__item {
+			input,
+			textarea {
+				border :1px solid rgb(169, 169, 169);
+			}
+			label {
+				&.w50 {
+					@include max-width(xxs) {
+						width :100%;
+					}
+					&:first-of-type {
+						@include max-width(xxs) {
+							margin-right :auto;
+							margin-bottom :24px;
+						}
+					}
+				}
+			}
+		}
+	}
+	.btn-wrap {
+		background-color :$yellow;
+		.btn {
+			color          :$main;
+			padding-top    :16px;
+			padding-bottom :16px;
+			&:hover,
+			&:focus {
+				color :$white;
+			}
+		}
+	}
+	.wpcf7-validation-errors {
+		display :none !important;
+	}
+	span.wpcf7-not-valid-tip {
+		display :none;
+	}
+}

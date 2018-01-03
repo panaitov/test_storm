@@ -171,8 +171,8 @@ add_filter('excerpt_length', 'new_excerpt_length');
  */
 if( function_exists('acf_add_options_page') ) {
   acf_add_options_page(array(
-    'page_title'    => 'General Settings',
-    'menu_title'    => 'General Settings',
+    'page_title'    => 'Theme options',
+    'menu_title'    => 'Theme options',
     'menu_slug'     => 'general-settings',
     'capability'    => 'edit_posts',
     'redirect'      => false

@@ -41,6 +41,10 @@
 	<symbol viewBox="0 0 11 14">
 		<path id="arrow-icon" d="M595.63 462l6.37-5-6.37-5-.63.71 5.46 4.29-5.46 4.29.63.71z" transform="translate(-593 -450)"/>
 	</symbol>
+	<symbol id="modal-close-icon" viewBox="0 0 48 48">
+		<path d="M38 12.83l-2.83-2.83-11.17 11.17-11.17-11.17-2.83 2.83 11.17 11.17-11.17 11.17 2.83 2.83 11.17-11.17 11.17 11.17 2.83-2.83-11.17-11.17z"/>
+		<path d="M0 0h48v48h-48z" fill="none"/>
+	</symbol>
 </svg>
 <div id="page" class="site">
 
@@ -112,7 +116,7 @@
 						<p class="intro__title"><?php echo $intro_title; ?></p>
 						<div class="intro__action">
 							<div class="btn-wrap">
-								<a class="btn" href="#">
+								<a class="js-modal-show btn" href=".modal_contact_us">
 									<span><?php echo $intro_btn_title; ?></span>
 									<svg>
 										<use xlink:href="#arrow-icon"/>

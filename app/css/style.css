@@ -638,6 +638,140 @@ textarea:focus {
 }
 
 /* -----------------------------------------
+ Modals
+----------------------------------------- */
+
+body.js-overflow {
+  overflow: hidden;
+}
+
+.modal-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  min-height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 4vh;
+  padding-bottom: 4vh;
+  z-index: 999;
+  background-color: rgba(50, 50, 50, 0);
+  visibility: hidden;
+  -webkit-transition: background-color 0.4s ease;
+  transition: background-color 0.4s ease;
+  -webkit-transition-property: background-color, visibility;
+  transition-property: background-color, visibility;
+  overflow-x: hidden;
+}
+
+.modal-wrap.js-modal-open {
+  overflow-y: auto;
+  overflow-x: hidden;
+  visibility: visible;
+  background-color: rgba(50, 50, 50, 0.6);
+}
+
+.modal {
+  position: relative;
+  padding: 40px;
+  width: 95%;
+  max-width: 640px;
+  margin: auto;
+  background-color: #FFF;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: scale(2);
+  -ms-transform: scale(2);
+  transform: scale(2);
+  -webkit-transition: 0.4s ease;
+  transition: 0.4s ease;
+  -webkit-transition-property: opacity, visibility, -webkit-transform;
+  transition-property: opacity, visibility, -webkit-transform;
+  transition-property: opacity, transform, visibility;
+  transition-property: opacity, transform, visibility, -webkit-transform;
+}
+
+.js-modal-open .modal {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+.modal__btn {
+  display: block;
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  -webkit-border-radius: 0 0 0 10px;
+  border-radius: 0 0 0 10px;
+  -webkit-box-shadow: inset 0 0 0 40px #10455F;
+  box-shadow: inset 0 0 0 40px #10455F;
+  -webkit-transition: -webkit-box-shadow 0.2s ease-in-out;
+  transition: -webkit-box-shadow 0.2s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out, -webkit-box-shadow 0.2s ease-in-out;
+}
+
+.modal__btn:hover {
+  -webkit-box-shadow: inset 0 0 0 1px #10455F;
+  box-shadow: inset 0 0 0 1px #10455F;
+  background-color: #FFF;
+}
+
+.modal__btn:hover svg {
+  fill: #DB302C;
+}
+
+.modal__btn svg {
+  display: inline-block;
+  vertical-align: middle;
+  width: 25px;
+  height: 25px;
+  fill: #FFF;
+  -webkit-transition: fill 0.2s ease-in-out;
+  transition: fill 0.2s ease-in-out;
+}
+
+.modal .contact-form__item input,
+.modal .contact-form__item textarea {
+  border: 1px solid darkgray;
+}
+
+.modal .btn-wrap {
+  background-color: #FD0;
+}
+
+.modal .btn-wrap .btn {
+  color: #000;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.modal .btn-wrap .btn:hover,
+.modal .btn-wrap .btn:focus {
+  color: #FFF;
+}
+
+.modal .wpcf7-validation-errors {
+  display: none !important;
+}
+
+.modal span.wpcf7-not-valid-tip {
+  display: none;
+}
+
+/* -----------------------------------------
  Header
 ----------------------------------------- */
 
@@ -1081,11 +1215,6 @@ textarea:focus {
   font-weight: 700;
 }
 
-.franchise-form input[type="text"] {
-  border: 1px solid #b7b7b7;
-  background-color: #ffffff;
-}
-
 .franchise-form__label {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
@@ -1099,6 +1228,38 @@ textarea:focus {
   padding: 15px 17px;
   border: 1px solid #b7b7b7;
   background-color: #FFF;
+}
+
+.franchise-form__label input::-webkit-input-placeholder {
+  font-weight: 700;
+  font-size: 17px;
+  font-style: normal;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.franchise-form__label input:-moz-placeholder {
+  font-weight: 700;
+  font-size: 17px;
+  font-style: normal;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.franchise-form__label input::-moz-placeholder {
+  font-weight: 700;
+  font-size: 17px;
+  font-style: normal;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.franchise-form__label input:-ms-input-placeholder {
+  font-weight: 700;
+  font-size: 17px;
+  font-style: normal;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .franchise-form .wpcf7-form {
@@ -1882,6 +2043,13 @@ textarea:focus {
   }
 }
 
+@media screen and (min-width: 1201px) {
+  .home .header {
+    background-attachment: fixed;
+    background-position: 50% 100%;
+  }
+}
+
 @media (min-width: 1300px) {
   .container {
     width: 1230px;
@@ -2043,6 +2211,14 @@ textarea:focus {
     margin-bottom: 30px;
   }
 
+  .become-franchise-form .franchise-form__item {
+    text-align: center;
+  }
+
+  .become-franchise-form .franchise-form__item:nth-child(2) {
+    text-align: center;
+  }
+
   .services .btn {
     padding: 16px 34px;
   }
@@ -2085,6 +2261,10 @@ textarea:focus {
     padding-bottom: 16px;
   }
 
+  .franchise-info {
+    text-align: center;
+  }
+
   .franchise-info__img {
     float: none;
     margin-left: auto;
@@ -2093,10 +2273,33 @@ textarea:focus {
   }
 }
 
+@media screen and (max-width: 767px) {
+  .foot-top__item {
+    text-align: center;
+  }
+
+  .foot-top__item:not(:last-of-type) {
+    margin-bottom: 30px;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .breadcrumbs__inner > span {
     padding-left: 5px;
     padding-right: 5px;
+  }
+
+  .modal {
+    padding: 50px 15px 25px;
+  }
+
+  .modal .contact-form__item label.w50 {
+    width: 100%;
+  }
+
+  .modal .contact-form__item label.w50:first-of-type {
+    margin-right: auto;
+    margin-bottom: 24px;
   }
 
   .header {

@@ -37,6 +37,12 @@
 				padding-right :45px;
 			}
 		}
+		@include max-width(767px) {
+			text-align :center;
+			&:not(:last-of-type) {
+				margin-bottom :30px;
+			}
+		}
 		.home & {
 			&:nth-child(even) {
 				padding-left :15px;

@@ -17,8 +17,14 @@
 			}
 		}
 		&__item {
+			@include max-width(sm) {
+				text-align :center;
+			}
 			&:nth-child(2) {
 				text-align :right;
+				@include max-width(sm) {
+					text-align :center;
+				}
 			}
 		}
 	}
