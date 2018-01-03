@@ -45,6 +45,9 @@
 		<path d="M38 12.83l-2.83-2.83-11.17 11.17-11.17-11.17-2.83 2.83 11.17 11.17-11.17 11.17 2.83 2.83 11.17-11.17 11.17 11.17 2.83-2.83-11.17-11.17z"/>
 		<path d="M0 0h48v48h-48z" fill="none"/>
 	</symbol>
+	<symbol id="scroll-top-icon" viewBox="0 0 32 32">
+		<path d="M16.714,11.297c-0.389-0.389-1.039-0.389-1.429,0l-8.999,8.976  c-0.394,0.394-0.394,1.033,0,1.426c0.394,0.394,1.034,0.394,1.428,0L16,13.436l8.285,8.264c0.395,0.394,1.034,0.394,1.429,0  c0.394-0.394,0.394-1.033,0-1.426L16.714,11.297z"/>
+	</symbol>
 </svg>
 <div id="page" class="site">
 
@@ -83,7 +86,7 @@
 				<span id="bottom-hover-line" class="hover-line hover-line--bottom"></span>
 				<div class="container head-nav__inner">
 					<div class="head-nav__img">
-	          <?php the_custom_logo(); ?>
+            <?php the_custom_logo(); ?>
 					</div>
 					<!-- /.head-nav__img -->
 					<nav class="main-nav">

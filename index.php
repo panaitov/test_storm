@@ -36,13 +36,13 @@ get_header(); ?>
 
           get_template_part('template-parts/content', 'none');
 
-        endif;
-        get_template_part('template-parts/content', 'services_cat'); ?>
-
+        endif; ?>
 			</div>
 			<!-- /.container -->
-      <?php get_template_part('template-parts/franchise', 'form'); ?>
+      <?php
+      get_template_part('template-parts/content', 'services_cat');
 
+      get_template_part('template-parts/franchise', 'form'); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

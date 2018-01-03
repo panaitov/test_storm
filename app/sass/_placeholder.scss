@@ -49,30 +49,30 @@ textarea:focus {
 }
 
 
-@mixin placer($color) {
+@mixin placer($fz, $fw) {
 	&::-webkit-input-placeholder{
-		font-weight: 600;
-		letter-spacing: 0.5px;
+		font-weight: $fw;
+		font-size :$fz;
+		font-style :normal;
 		transition: color 0.3s ease;
-		color: $color;
 	}
 	&:-moz-placeholder{
-		font-weight: 600;
-		letter-spacing: 0.5px;
+		font-weight: $fw;
+		font-size :$fz;
+		font-style :normal;
 		transition: color 0.3s ease;
-		color: $color;
 	}
 	&::-moz-placeholder{
-		font-weight: 600;
-		letter-spacing: 0.5px;
+		font-weight: $fw;
+		font-size :$fz;
+		font-style :normal;
 		transition: color 0.3s ease;
-		color: $color;
 	}
 	&:-ms-input-placeholder{
-		font-weight: 600;
-		letter-spacing: 0.5px;
+		font-weight: $fw;
+		font-size :$fz;
+		font-style :normal;
 		transition: color 0.3s ease;
-		color: $color;
 	}
 }
 

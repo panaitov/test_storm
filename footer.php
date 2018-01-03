@@ -74,10 +74,10 @@
               <?php if($desc) : ?>
 								<div class="projects__desc">
 									<p>
-										<?php echo $desc; ?>
-	                  <?php if(!is_front_page()) : ?>
+                    <?php echo $desc; ?>
+                    <?php if(!is_front_page()) : ?>
 											<a class="projects__desc-link" href="<?php echo get_the_permalink($project_page_id); ?>"><?php echo $link_title; ?></a>
-	                  <?php endif; ?>
+                    <?php endif; ?>
 									</p>
 								</div>
               <?php endif; ?>
@@ -149,10 +149,19 @@
 	</div>
 	<!-- /.foot-bottom -->
 </footer>
+<div class="scroll-top">
+	<div class="container relative">
+		<a class="scroll-top__link" href=".header">
+			<svg class="scroll-top__icon">
+				<use xlink:href="#scroll-top-icon"/>
+			</svg>
+		</a>
+	</div>
+</div>
 <!-- Modal window -->
 <div class="modal_contact_us modal-wrap">
 	<div class="modal">
-		<?php the_field('contact_form', 45); ?>
+    <?php the_field('contact_form', 45); ?>
 		<button class="modal__btn">
 			<svg>
 				<use xlink:href="#modal-close-icon"/>

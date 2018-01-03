@@ -2,6 +2,9 @@
  Services
 ----------------------------------------- */
 .services {
+	@include max-width(sm) {
+		padding-top :30px;
+	}
 	.container {
 		@extend %section-border;
 		padding-bottom :19px;

@@ -2,6 +2,9 @@
  Franchise page
 ----------------------------------------- */
 .franchise-info {
+	@include max-width(sm) {
+		text-align :center;
+	}
 	&__img {
 		float       :right;
 		margin-left :17px;

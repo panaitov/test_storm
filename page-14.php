@@ -10,20 +10,17 @@
 
 get_header(); ?>
 
-<div id="primary" class="content-area">
-	<main id="main" class="site-main">
-		<div class="container">
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main">
       <?php
 
       get_template_part('template-parts/content', 'services');
 
-      get_template_part('template-parts/content', 'services_cat'); ?>
-		</div>
-		<!-- /.container -->
-    <?php get_template_part('template-parts/franchise', 'form'); ?>
+      get_template_part('template-parts/content', 'services_cat');
 
+      get_template_part('template-parts/franchise', 'form'); ?>
 
-	</main><!-- #main -->
-</div><!-- #primary -->
+		</main><!-- #main -->
+	</div><!-- #primary -->
 <?php
 get_footer();

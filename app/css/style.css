@@ -317,7 +317,8 @@ input.wpcf7-not-valid {
 
 .breadcrumbs__inner,
 .services .container,
-.page-content {
+.page-content,
+.blog .page-content {
   border-bottom: 1px solid #D4D4D4;
 }
 
@@ -419,6 +420,78 @@ input.wpcf7-not-valid {
 .overlay.is-active {
   opacity: 1;
   visibility: visible;
+}
+
+.relative {
+  position: relative;
+}
+
+.scroll-top {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  -webkit-box-shadow: 0 0 0 50px transparent;
+  box-shadow: 0 0 0 50px transparent;
+  opacity: 0;
+  outline: none;
+  -webkit-transform: translateY(90px);
+  -ms-transform: translateY(90px);
+  transform: translateY(90px);
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+  -webkit-transition-property: opacity, -webkit-transform, -webkit-box-shadow;
+  transition-property: opacity, -webkit-transform, -webkit-box-shadow;
+  transition-property: opacity, transform, box-shadow;
+  transition-property: opacity, transform, box-shadow, -webkit-transform, -webkit-box-shadow;
+  z-index: 100;
+}
+
+.scroll-top.js-scroll-top-show {
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  -webkit-box-shadow: 0 0 0 0 #2E93CD;
+  box-shadow: 0 0 0 0 #2E93CD;
+  opacity: 1;
+}
+
+.scroll-top__link {
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 55px;
+  width: 60px;
+  height: 60px;
+  line-height: 56px;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 10px 30px transparent;
+  box-shadow: 0 0 10px 30px transparent;
+  text-align: center;
+  background-color: #2E93CD;
+  color: #FFF;
+  opacity: 0.8;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+  -webkit-transition-property: opacity, background-color, bottom, -webkit-box-shadow;
+  transition-property: opacity, background-color, bottom, -webkit-box-shadow;
+  transition-property: opacity, background-color, box-shadow, bottom;
+  transition-property: opacity, background-color, box-shadow, bottom, -webkit-box-shadow;
+}
+
+.scroll-top__link:hover {
+  -webkit-box-shadow: 0 0 0 0 #FD0;
+  box-shadow: 0 0 0 0 #FD0;
+  background-color: #FD0;
+  opacity: 1;
+}
+
+.scroll-top__icon {
+  vertical-align: middle;
+  width: 35px;
+  height: 35px;
+  fill: #FFF;
 }
 
 input::-moz-placeholder {
@@ -1145,7 +1218,6 @@ body.js-overflow {
   -webkit-transform: translateX(-265px);
   -ms-transform: translateX(-265px);
   transform: translateX(-265px);
-  background-color: #000;
 }
 
 /* -----------------------------------------
@@ -1995,6 +2067,15 @@ body.js-overflow {
 ----------------------------------------- */
 
 /* -----------------------------------------
+ Blog page
+----------------------------------------- */
+
+.blog .page-content {
+  margin-bottom: 26px;
+  padding-bottom: 30px;
+}
+
+/* -----------------------------------------
  404
 ----------------------------------------- */
 
@@ -2053,6 +2134,12 @@ body.js-overflow {
 @media (min-width: 1300px) {
   .container {
     width: 1230px;
+  }
+}
+
+@media screen and (min-width: 1351px) {
+  .scroll-top__link {
+    right: -48px;
   }
 }
 
@@ -2219,6 +2306,10 @@ body.js-overflow {
     text-align: center;
   }
 
+  .services {
+    padding-top: 30px;
+  }
+
   .services .btn {
     padding: 16px 34px;
   }
@@ -2246,6 +2337,10 @@ body.js-overflow {
     font-size: 22px;
   }
 
+  .foot-top {
+    padding-bottom: 0;
+  }
+
   .contact-form__action .btn {
     padding-top: 16px;
     padding-bottom: 16px;
@@ -2261,6 +2356,10 @@ body.js-overflow {
     padding-bottom: 16px;
   }
 
+  .page-content {
+    margin-bottom: 0;
+  }
+
   .franchise-info {
     text-align: center;
   }
@@ -2270,6 +2369,14 @@ body.js-overflow {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 30px;
+  }
+
+  .blog .page-content:not(:last-of-type) {
+    margin-bottom: 30px;
+  }
+
+  .blog .services-cat {
+    padding-top: 0;
   }
 }
 
@@ -2281,9 +2388,17 @@ body.js-overflow {
   .foot-top__item:not(:last-of-type) {
     margin-bottom: 30px;
   }
+
+  .page-content__item:first-of-type {
+    margin-bottom: 20px;
+  }
 }
 
 @media screen and (max-width: 480px) {
+  .scroll-top__link {
+    right: 15px;
+  }
+
   .breadcrumbs__inner > span {
     padding-left: 5px;
     padding-right: 5px;
@@ -2308,6 +2423,12 @@ body.js-overflow {
 
   .intro {
     padding: 15px;
+  }
+
+  .hamburger.is-active {
+    background-color: #000;
+    -webkit-border-radius: 10px 0 0 10px;
+    border-radius: 10px 0 0 10px;
   }
 
   .franchise-form__inner {
@@ -2335,12 +2456,21 @@ body.js-overflow {
     margin-bottom: 12px;
   }
 
+  .project__img {
+    width: 101px;
+    height: 101px;
+  }
+
   .franchise-info__img {
     width: 100%;
   }
 }
 
 @media screen and (max-width: 350px) {
+  .scroll-top__link.body_bottom {
+    bottom: 110px;
+  }
+
   .projects .block-news__item {
     width: 100%;
   }

@@ -1,12 +1,22 @@
 ;(function($) {
 
 	var last_scroll_top = 0,
-			$body = $('body'),
-			$head_top = $('.head-top'),
-			$mobile_menu_and_hamburger = $('.mobile-menu, .hamburger');
-			$overlay = $('.overlay');
+		$body = $('body'),
+		$head_top = $('.head-top'),
+		$mobile_menu_and_hamburger = $('.mobile-menu, .hamburger'),
+		$overlay = $('.overlay'),
+		$scroll_top_link = $('.scroll-top__link'),
+		$scroll_top_btn = $('.scroll-top'),
+		headerHeight = $('.header').outerHeight();
 
 	$(document).ready(function() {
+
+		/*Init smoothscroll*/
+		if(window.matchMedia('(max-width: 768px)').matches) {
+			SmoothScroll({
+				touchpadSupport: true
+			});
+		}
 		/* magic line */
 		var $top_hover_line = $('#top-hover-line');
 		var $bottom_hover_line = $('#bottom-hover-line');
@@ -62,9 +72,15 @@
 			classAction($overlay, 'is-active', 'toggle');
 		});
 
+		/* Close mobile menu*/
+		$('.overlay').click(function() {
+			classAction($mobile_menu_and_hamburger, 'is-active', 'remove');
+			classAction($(this), 'is-active', 'remove');
+		}); // end click
+
 		/*Loading page after 300ms closing mobile menu*/
 		$(document).on('click', '.mobile-menu__list a', function(e) {
-			if( window.matchMedia('(max-width: 768px)').matches ) {
+			if(window.matchMedia('(max-width: 768px)').matches) {
 				e.preventDefault();
 				var link = $(this).attr('href');
 				classAction($mobile_menu_and_hamburger, 'is-active', 'remove');
@@ -76,9 +92,9 @@
 
 		/* Testimonials slider*/
 		$('.testimonials-slider').slick({
-			arrows: false,
-			dots: true,
-			slide: '.testimonials-slide',
+			arrows      : false,
+			dots        : true,
+			slide       : '.testimonials-slide',
 			slidesToShow: 1
 		});
 
@@ -95,9 +111,9 @@
 			openCloseModal(modal);
 		}); // end click
 
-		$('.modal-wrap').click(function(e){
+		$('.modal-wrap').click(function(e) {
 			openCloseModal();
-		}).children().click(function(e){
+		}).children().click(function(e) {
 			e.stopPropagation();
 		}); // end click
 
@@ -106,7 +122,20 @@
 			openCloseModal();
 		}); // end click
 
-	});	/* end ready*/
+		/* Scroll page to need section*/
+		$(document).on('click', '.scroll-top__link', function(event) {
+			event.preventDefault();
+
+			var elementId = $(this).attr('href');
+			var top = $(elementId).offset().top;
+
+			$('body, html').animate({
+				scrollTop: top
+			}, 1000);
+		});// end click
+
+	});
+	/* end ready*/
 
 	$(window).on('load resize', function() {
 		/* Hide mobile menu*/
@@ -115,13 +144,14 @@
 
 		/* Delete head-top element scroll-down class*/
 		classAction($head_top, 'scroll-down', 'remove');
-	});	/* end load resize*/
+	});
+	/* end load resize*/
 
-	$(window).on('scroll', function() {
+	$(window).scroll(function() {
+		var scroll_direction = $(this).scrollTop();
 		/* Hide top line when scrolling down and show when scrolling up on desktop*/
-		if( window.matchMedia('(min-width: 769px)').matches ) {
-			var scroll_direction =  $(this).scrollTop();
-			if (scroll_direction > last_scroll_top){
+		if(window.matchMedia('(min-width: 769px)').matches) {
+			if(scroll_direction > last_scroll_top) {
 				/*scroll down code*/
 				$head_top.addClass('scroll-down');
 			} else {
@@ -130,7 +160,19 @@
 			}
 			last_scroll_top = scroll_direction;
 		}
-	});	/* end scroll*/
+		/* Show hide arrow scroll top*/
+		if(scroll_direction > headerHeight) {
+			$scroll_top_btn.addClass('js-scroll-top-show');
+		} else {
+			$scroll_top_btn.removeClass('js-scroll-top-show');
+		}
+		if(scroll_direction > ($('.site').height()) && window.matchMedia('(max-width: 350px)').matches) {
+			$scroll_top_link.addClass('body_bottom');
+		} else {
+			$scroll_top_link.removeClass('body_bottom');
+		}
+	});
+	/* end scroll*/
 
 	/* Hover line for header menus*/
 	function moveLineHover(el, parent, line) {
@@ -140,6 +182,7 @@
 		el.addClass('active');
 		line.width($lineWidth).css('left', $posX);
 	}
+
 	function resetLineHoverPosition(line) {
 		line.width('0').css('left', '0');
 	}
@@ -148,15 +191,16 @@
 	function classAction(el, cls, action) {
 		if(action === 'toggle') {
 			$(el).toggleClass(cls);
-		} else if( action === 'add'){
+		} else if(action === 'add') {
 			$(el).addClass(cls);
 		} else {
 			$(el).removeClass(cls);
 		}
 	}
+
 	/* Show hide modal window*/
 	function openCloseModal() {
-		if( !$body.hasClass('js-overflow') ) {
+		if(!$body.hasClass('js-overflow')) {
 			$body.addClass('js-overflow');
 			$(arguments[0]).addClass('js-modal-open');
 		} else {

@@ -11,6 +11,9 @@
 	padding-bottom   :24px;
 	padding-top      :29px;
 	background-color :$red;
+	@include max-width(sm) {
+		padding-bottom :0;
+	}
 	&__item {
 		@include min-width(sm) {
 			position :relative;
@@ -206,6 +209,10 @@
 	&__img {
 		width  :123px;
 		height :123px;
+		@include max-width(xxs) {
+			width  :101px;
+			height :101px;
+		}
 		.home & {
 			width  :129px;
 			height :129px;
