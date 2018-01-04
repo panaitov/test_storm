@@ -33,16 +33,16 @@ if(!function_exists('stormguard_scripts')) :
     wp_enqueue_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), '3.1.1');
 
     // Slick slider
-    wp_enqueue_script('slick_script', get_template_directory_uri() . '/app/plugins/slick.min.js', array('jquery'),
-      '1.6.0', true);
+    wp_enqueue_script('slick_script', get_template_directory_uri() . '/app/plugins/slick.min.js', array('jquery'),'1.6.0', true);
 
     // SmoothScroll
-    wp_enqueue_script('SmoothScroll_script', get_template_directory_uri() . '/app/plugins/SmoothScroll.min.js',
-      array('jquery'), '1.0.0', true);
+    wp_enqueue_script('SmoothScroll_script', get_template_directory_uri() . '/app/plugins/SmoothScroll.min.js', array('jquery'), '1.0.0', true);
 
     // Custom scripts
-    wp_enqueue_script('stormguard_script', get_template_directory_uri() . '/app/js/main.js', array('jquery'), '0.0.1',
-      true);
+    wp_enqueue_script('stormguard_script', get_template_directory_uri() . '/app/js/main.js', array('jquery'), '0.0.1',true);
+
+    // Custom minify scripts
+    //wp_enqueue_script('stormguard_min_script', get_template_directory_uri() . '/app/js/min/main.min.js', array('jquery'), '0.0.1', true);
 
     if(is_singular() && comments_open() && get_option('thread_comments')) {
       wp_enqueue_script('comment-reply');

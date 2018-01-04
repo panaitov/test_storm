@@ -2,23 +2,23 @@
  Franchise form
 ----------------------------------------- */
 .franchise-form {
-	padding-top :33px;
-	padding-bottom :34px;
+	padding-top      :33px;
+	padding-bottom   :34px;
 	background-color :$yellow;
-	color :$main;
+	color            :$main;
 	&--margin {
 		margin-bottom :5px;
 	}
 	&__inner {
-		position :relative;
-		display :flex;
-		flex-wrap:wrap;
-		align-items :center;
+		position     :relative;
+		display      :flex;
+		flex-wrap    :wrap;
+		align-items  :center;
 		margin-right :45px;
-		margin-left :45px;
+		margin-left  :45px;
 		padding-left :60px;
 		@include max-width(lg) {
-			margin-left :auto;
+			margin-left  :auto;
 			margin-right :auto;
 			padding-left :48px;
 		}
@@ -29,16 +29,16 @@
 			padding-left :0;
 		}
 		&:before {
-			content :'';
-			position :absolute;
-			top :0;
-			left :0;
-			width :38px;
-			height :56px;
+			content         :'';
+			position        :absolute;
+			top             :0;
+			left            :0;
+			width           :38px;
+			height          :56px;
 			background      :url(../img/icons/franchise-icon.svg) 50% no-repeat;
 			background-size :contain;
 			@include max-width(xxs) {
-				content: none;
+				content :none;
 			}
 		}
 	}
@@ -46,7 +46,7 @@
 		width :calc(40% - 15px);
 		&:first-child {
 			margin-right :30px;
-			width :calc(60% - 15px);
+			width        :calc(60% - 15px);
 			@include max-width(sm) {
 				width :100%;
 			}
@@ -56,55 +56,46 @@
 		}
 	}
 	&__title {
-		font-size :38px;
+		font-size   :38px;
 		font-family :$second-font;
 		font-weight :400;
 		line-height :1.1;
 		@include max-width(sm) {
-			font-size :26px;
+			font-size     :26px;
 			margin-bottom :12px;
 		}
 	}
 	&__desc {
-		font-size :16px;
+		font-size   :16px;
 		font-weight :700;
 		@include max-width(sm) {
 			margin-bottom :30px;
 		}
 	}
 	&__label {
-		flex-grow:1;
+		flex-grow    :1;
 		margin-right :10px;
 		input {
 			@include placer(17px, 700);
-			width :100%;
-			padding :15px 17px;
-			border: 1px solid #b7b7b7;
-			background-color: $white;
+			width            :100%;
+			padding          :15px 17px;
+			border           :1px solid #B7B7B7;
+			background-color :$white;
 		}
 	}
 	.wpcf7-form {
-		position :relative;
-		display :flex;
+		position    :relative;
+		display     :flex;
 		align-items :center;
 	}
-	.wpcf7-response-output {
-		position :absolute;
-		top :105%;
-		left :0;
-		right :0;
-		margin :0;
-		border-radius :0 0 10px 10px;
-		color :$white;
-		&.wpcf7-mail-sent-ok {
-			background-color :#398f14;
-		}
-		&.wpcf7-validation-errors {
-			background-color :$red;
-		}
-	}
 	.wpcf7-not-valid-tip {
-		display :none!important;
+		display :none;
+	}
+	div.wpcf7-response-output {
+		position :absolute;
+		top      :105%;
+		left     :0;
+		right    :0;
 	}
 	.btn-wrap {
 		flex-shrink :0;
@@ -112,11 +103,11 @@
 	.btn {
 		padding :16px 38px;
 		@include max-width(lg) {
-			padding-left :34px;
+			padding-left  :34px;
 			padding-right :34px;
 		}
 		@include max-width(md) {
-			padding-left :22px;
+			padding-left  :22px;
 			padding-right :22px;
 		}
 	}

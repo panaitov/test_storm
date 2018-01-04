@@ -22,12 +22,6 @@
 		var $bottom_hover_line = $('#bottom-hover-line');
 		if($top_hover_line.length) {
 			var $secondNavList = $('.second-nav__list');
-			/*if($('.second-nav__list li').hasClass('active')){
-				var $lineWidth = $('.header .header__menu li.active').innerWidth(),
-					$posX = $('.header .header__menu li.active').offset().left;
-
-				$top_hover_line.width($lineWidth).css('left', $posX);
-			}*/
 
 			$secondNavList.on('mouseover', 'li', function() {
 				moveLineHover($(this), $secondNavList, $top_hover_line);
@@ -38,12 +32,6 @@
 
 		if($bottom_hover_line.length) {
 			var $mainNavList = $('.head-nav');
-			/*if($('.main-nav__list li').hasClass('active')){
-				var $lineWidth = $('.header .header__menu li.active').innerWidth(),
-					$posX = $('.header .header__menu li.active').offset().left;
-
-				$top_hover_line.width($lineWidth).css('left', $posX);
-			}*/
 
 			$mainNavList.on('mouseover', 'li', function() {
 				moveLineHover($(this), $mainNavList, $bottom_hover_line);
@@ -122,7 +110,7 @@
 			openCloseModal();
 		}); // end click
 
-		/* Scroll page to need section*/
+		/* Scroll top page to need section*/
 		$(document).on('click', '.scroll-top__link', function(event) {
 			event.preventDefault();
 
@@ -138,6 +126,7 @@
 	/* end ready*/
 
 	$(window).on('load resize', function() {
+
 		/* Hide mobile menu*/
 		classAction($mobile_menu_and_hamburger, 'is-active', 'remove');
 		classAction($overlay, 'is-active', 'remove');
@@ -149,6 +138,7 @@
 
 	$(window).scroll(function() {
 		var scroll_direction = $(this).scrollTop();
+
 		/* Hide top line when scrolling down and show when scrolling up on desktop*/
 		if(window.matchMedia('(min-width: 769px)').matches) {
 			if(scroll_direction > last_scroll_top) {
@@ -160,13 +150,14 @@
 			}
 			last_scroll_top = scroll_direction;
 		}
+
 		/* Show hide arrow scroll top*/
 		if(scroll_direction > headerHeight) {
 			$scroll_top_btn.addClass('js-scroll-top-show');
 		} else {
 			$scroll_top_btn.removeClass('js-scroll-top-show');
 		}
-		if(scroll_direction > ($('.site').height()) && window.matchMedia('(max-width: 350px)').matches) {
+		if(scroll_direction > ($('.site-content').height()) && window.matchMedia('(max-width: 350px)').matches) {
 			$scroll_top_link.addClass('body_bottom');
 		} else {
 			$scroll_top_link.removeClass('body_bottom');
@@ -206,6 +197,8 @@
 		} else {
 			$body.removeClass('js-overflow');
 			$('.modal-wrap').removeClass('js-modal-open');
+			$('.wpcf7-not-valid').removeClass('wpcf7-not-valid');
+			$('.wpcf7-response-output').css('display', 'none');
 		}
 	}
 })(jQuery);

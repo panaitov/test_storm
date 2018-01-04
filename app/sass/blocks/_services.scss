@@ -59,6 +59,11 @@
 		height           :84px;
 		border-radius    :50%;
 		background-color :$red;
+		img {
+			width :auto;
+			max-width :100%;
+			height :auto;
+		}
 	}
 	&__title {
 		margin-bottom :10px;

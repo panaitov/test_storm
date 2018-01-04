@@ -22,7 +22,9 @@
 		runSequence = require('run-sequence'),
 		del = require('del'),
 		sourcemaps = require('gulp-sourcemaps'),
-		gcmq = require('gulp-group-css-media-queries');
+		csscomb = require('gulp-csscomb'),
+		gcmq = require('gulp-group-css-media-queries'),
+		$ = require('gulp-load-plugins')();
 
 	var paths = {
 		sass      : path.resolve('app/sass'),
@@ -36,6 +38,17 @@
 		php: path.resolve('/'),
 		production: path.resolve('dist')
 	};
+
+	//csscomb
+	gulp.task('comb', function() {
+		gulp.src([
+			'./app/sass/*.scss',
+			'./app/sass/blocks/*.scss',
+			'./app/sass/pages/*.scss'])
+		.pipe($.scss({strictMath: true}))
+		.pipe(csscomb('./yandex.json'))
+		.pipe(gulp.dest(paths.sass));
+	});
 
 	//Sass
 	gulp.task('sass', function() {
@@ -64,18 +77,24 @@
 	//Scripts
 	gulp.task('scripts', function() {
 		return gulp.src([
-			paths.plugins + '/jquery-3.1.1.min.js',
-			paths.plugins + '/jquery-ui-1.12.1.min.js',
 			paths.plugins + '/SmoothScroll.min.js',
-			paths.plugins + '/viewportchecher.js',
-			paths.plugins + '/jquery.fancybox.min.js',
-			//paths.plugins + '/slick.min.js',
+			paths.plugins + '/slick.min.js',
 			//paths.plugins + '/wow.min.js'
 		])
 		.pipe(stripDebug())
 		.pipe(stripComments())
 		.pipe(concat('vendor.min.js'))
 		.pipe(gulp.dest(paths.production + '/js'));
+	});
+
+	//Minify main Scripts
+	gulp.task('minify-main-script', function() {
+		return gulp.src(paths.js + '/main.js')
+		.pipe(stripDebug())
+		.pipe(stripComments())
+		.pipe(uglify())
+		.pipe(rename('main.min.js'))
+		.pipe(gulp.dest(paths.js + '/min/'));
 	});
 
 	gulp.task('main-script', function() {
@@ -92,6 +111,11 @@
 	//Clean 'dist' before build
 	gulp.task('clean', function() {
 		return del(paths.production, {force: true});
+	});
+
+	//Clean 'js/min' before build
+	gulp.task('clean-min', function() {
+		return del(paths.js + '/min', {force: true});
 	});
 
 	// Clean cache for task Images
@@ -130,11 +154,14 @@
 		.pipe(gulp.dest(paths.production + '/favicon/'));
 	});
 
-	// Browser-sync
+	// Browser-Sync
 	gulp.task('browser-sync', function() {
 		browserSync({
-			proxy: "domains",
-			notify: false,
+			server: {
+				baseDir: 'app'
+			},
+			open  : true,
+			notify: false
 		});
 	});
 
@@ -142,10 +169,14 @@
 	gulp.task('build', function(callback) {
 		runSequence('clean', 'clear', 'favicon', 'img', 'useref', 'scripts', 'fonts', callback);
 	});
+	// minify main script
+	gulp.task('minify-script', function(callback) {
+		runSequence('clean-min', 'minify-main-script', callback);
+	});
 
 	gulp.task('watch', ['sass', 'main-script', 'browser-sync'], function() {
 		gulp.watch(paths.sass + '/**/*.scss', ['sass']);
-		gulp.watch(paths.js + 'main.js', ['main-script']);
+		gulp.watch(paths.js + '/main.js', ['main-script']);
 		gulp.watch(paths.html + '/*.html', browserSync.reload);
 		gulp.watch(paths.php + '/**/*.php', browserSync.reload);
 	});

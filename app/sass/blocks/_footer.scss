@@ -145,7 +145,7 @@
 	@include max-width(lg) {
 		margin-bottom :30px;
 	}
-	@include max-width(md) {
+	@include max-width(xxs) {
 		justify-content :center;
 	}
 	&__title,
@@ -205,13 +205,24 @@
 .project {
 	margin-right :10px;
 	margin-left  :10px;
-	margin-top   :23px;
+	margin-top   :9px;
+	@include max-width(360px) {
+		margin-right :5px;
+		margin-left :5px;
+	}
+	&:first-of-type {
+		margin-top :23px;
+	}
 	&__img {
 		width  :123px;
 		height :123px;
-		@include max-width(xxs) {
+		@include max-width(sm) {
 			width  :101px;
 			height :101px;
+		}
+		@include max-width(360px) {
+			width :93px;
+			height :93px;
 		}
 		.home & {
 			width  :129px;

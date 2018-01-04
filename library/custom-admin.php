@@ -35,7 +35,7 @@ function wordpress_login_styling() {
 			background-image: url('<?php echo $image[0]; ?>');
 			background-size: contain;
 			width: 100%;
-			height: auto;
+			height: 90px;
 		}
 	   body.login {
 		   background-color: #<?php echo get_background_color(); ?>;

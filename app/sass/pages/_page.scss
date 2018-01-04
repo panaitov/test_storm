@@ -2,21 +2,36 @@
  Page
 ----------------------------------------- */
 .page-content {
+	overflow :hidden;
 	@extend %section-border;
 	margin-bottom  :26px;
-	padding-bottom :40px;
 	@include max-width(sm) {
+		text-align :center;
 		margin-bottom :0;
+		padding-bottom :30px;
+	}
+	&__img {
+		float :left;
+		margin-right :23px;
+		margin-bottom :33px;
+		width :100%;
+		max-width :530px;
+		@include max-width(sm) {
+			float :none;
+			margin-left :auto;
+			margin-right :auto;
+		}
 	}
 	.entry-header {
 		text-align :left;
-	}
-	&__item {
-		@include max-width(767px) {
-			&:first-of-type {
-				margin-bottom :20px;
-			}
+		margin-bottom :25px;
+		line-height :1;
+		@include max-width(sm) {
+			text-align :center;
 		}
+	}
+	.row {
+		width :100%;
 	}
 }
 
