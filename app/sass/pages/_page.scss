@@ -5,10 +5,10 @@
 	overflow :hidden;
 	@extend %section-border;
 	margin-bottom  :26px;
+	padding-bottom :30px;
 	@include max-width(sm) {
 		text-align :center;
 		margin-bottom :0;
-		padding-bottom :30px;
 	}
 	&__img {
 		float :left;

@@ -45,7 +45,6 @@
 			'./app/sass/*.scss',
 			'./app/sass/blocks/*.scss',
 			'./app/sass/pages/*.scss'])
-		.pipe($.scss({strictMath: true}))
 		.pipe(csscomb('./yandex.json'))
 		.pipe(gulp.dest(paths.sass));
 	});
@@ -176,7 +175,7 @@
 
 	gulp.task('watch', ['sass', 'main-script', 'browser-sync'], function() {
 		gulp.watch(paths.sass + '/**/*.scss', ['sass']);
-		gulp.watch(paths.js + '/main.js', ['main-script']);
+		gulp.watch(paths.js + '/main.js', browserSync.reload);
 		gulp.watch(paths.html + '/*.html', browserSync.reload);
 		gulp.watch(paths.php + '/**/*.php', browserSync.reload);
 	});

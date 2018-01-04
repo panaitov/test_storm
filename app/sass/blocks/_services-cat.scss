@@ -9,6 +9,9 @@
 	}
 	.home & {
 		padding-top :39px;
+		@include max-width(sm) {
+			padding-top :30px;
+		}
 	}
 	@include max-width(sm) {
 		padding-top    :30px;

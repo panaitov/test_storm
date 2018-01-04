@@ -6,6 +6,7 @@
 	padding-bottom :25px;
 	@include max-width(sm) {
 		padding-top :30px;
+		padding-bottom :0;
 	}
 	&__title {
 		margin-bottom :20px;
